@@ -3,10 +3,10 @@
 > **Know what's exposed. Before you share it.**
 > A client-side privacy audit web app — paste a document or connect Google Drive, see what personal information is in it, and decide what to do.
 
-**Live demo:** https://pmcrafts.github.io/ShieldMe/
+**Live demo:** https://vasilischatzip.github.io/ShieldMe/
 
-[![CI](https://github.com/pmcrafts/ShieldMe/actions/workflows/ci.yml/badge.svg)](https://github.com/pmcrafts/ShieldMe/actions/workflows/ci.yml)
-[![Deploy](https://github.com/pmcrafts/ShieldMe/actions/workflows/deploy.yml/badge.svg)](https://github.com/pmcrafts/ShieldMe/actions/workflows/deploy.yml)
+[![CI](https://github.com/vasilischatzip/ShieldMe/actions/workflows/ci.yml/badge.svg)](https://github.com/vasilischatzip/ShieldMe/actions/workflows/ci.yml)
+[![Deploy](https://github.com/vasilischatzip/ShieldMe/actions/workflows/deploy.yml/badge.svg)](https://github.com/vasilischatzip/ShieldMe/actions/workflows/deploy.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 ---
@@ -84,4 +84,4 @@ MIT — see [LICENSE](LICENSE).
 
 This is a personal portfolio project. I'm open to issues that surface bugs or detection false-positives (with sanitized examples). PRs are case-by-case.
 
-— Bill ([@pmcrafts](https://github.com/pmcrafts))
+— Vasilis ([@vasilischatzip](https://github.com/vasilischatzip))

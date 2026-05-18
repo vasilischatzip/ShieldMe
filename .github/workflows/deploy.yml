@@ -45,7 +45,7 @@ jobs:
 
       - name: Build
         env:
-          # Project page at https://pmcrafts.github.io/ShieldMe/ — asset paths
+          # Project page at https://vasilischatzip.github.io/ShieldMe/ — asset paths
           # need the /ShieldMe/ prefix. Vite reads this via vite.config.ts.
           SHIELDME_BASE_PATH: /ShieldMe/
         run: pnpm build

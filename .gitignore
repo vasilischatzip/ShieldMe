@@ -26,3 +26,11 @@ coverage/
 *.key
 *.p12
 tessdata/*.traineddata
+
+# Claude Code
+.claude/
+
+# Temp files
+_tmp_*
+test_write_check.txt
+CONTEXT/
