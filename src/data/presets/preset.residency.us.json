@@ -1,0 +1,29 @@
+{
+  "id": "preset.residency.us",
+  "version": 1,
+  "titleI18nKey": "preset_residency_us_title",
+  "descriptionI18nKey": "preset_residency_us_desc",
+  "locale": "us",
+  "shipTier": "ga",
+  "sourceNote": "U.S. State Breach Notification Laws · U.S. Enhanced · U.S. PII",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "us-bank":         true,
+    "ssn":             true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

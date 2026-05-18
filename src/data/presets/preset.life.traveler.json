@@ -1,0 +1,28 @@
+{
+  "id": "preset.life.traveler",
+  "version": 1,
+  "titleI18nKey": "preset_life_traveler_title",
+  "descriptionI18nKey": "preset_life_traveler_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "ShieldMe curated — frequent traveler",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": true }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "passport":        true,
+    "drivers-license": true,
+    "home-address":    true,
+    "itinerary":       true,
+    "gps-coords":      true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

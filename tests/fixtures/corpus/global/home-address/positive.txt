@@ -1,0 +1,26 @@
+# home-address positive corpus — each line should trigger the detector
+# Home address with residential keywords
+Home address: 456 Oak Avenue Apt 3B is where I live
+My residence is at 123 Main Street — home for 5 years
+I live at 789 Elm Street NW where I reside
+Personal address: 234 Maple Drive where I live
+My home is 567 Pine Road residential area
+Residential address: 890 Cedar Lane apartment 4C
+Where I live: 123 Birch Court private residence
+My personal home address 456 Willow Way Apt 12
+Residence: 789 Spruce Avenue — I live here with family
+Home: 234 Poplar Street is my personal address
+I reside at 567 Chestnut Road home for 3 years
+Personal residence: 890 Walnut Drive unit 7
+My home address for correspondence: 123 Hickory Lane
+Residential home 456 Ash Street — where I live
+I live at 789 Magnolia Court private home
+Home mailing address: 234 Sycamore Place Apt 2A
+My residence address: 567 Mulberry Lane — personal home
+Where I reside: 890 Dogwood Drive home address
+Personal home: 123 Redbud Court residential neighborhood
+My home address is 456 Sweetgum Avenue apartment 8B
+Residence 789 Laurel Street where I personally live
+Home address for records: 234 Hawthorn Drive private
+My personal residence: 567 Juniper Way home neighborhood
+I live at 890 Cypress Avenue — personal home address

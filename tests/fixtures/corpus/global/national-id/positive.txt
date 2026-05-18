@@ -1,0 +1,21 @@
+# National ID positive corpus
+NINO: AB123456C for tax records
+National insurance number SW112233A
+NI number RN123456A registered
+NIF: 12345678Z from Spain
+Spanish NIF 00000000T identification
+Italian codice fiscale: RSSMRA85T10A562S
+Codice fiscale MRTMTT91D08F205J employee
+INSEE: 185017511609892 social security
+French social security 169054938012401
+German tax ID 86095742719 Steuer
+Steueridentifikationsnummer: 47036892816
+Greek AFM: 094259216 tax authority
+ΑΦΜ 012345670 Greek tax
+UK NINO TL456789D national insurance
+National insurance GH678901B active
+NIF 123456789 Portugal tax
+Portuguese fiscal 100000002 identification
+AFM Greek 034567891 fiscal
+Spanish DNI 55555555K national id
+National ID code YR234567B insurance

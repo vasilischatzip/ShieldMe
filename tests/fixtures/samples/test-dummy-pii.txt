@@ -1,0 +1,118 @@
+CONFIDENTIAL — EMPLOYEE RECORDS (DUMMY DATA FOR TESTING)
+==========================================================
+
+This document contains FAKE data for ShieldMe extension testing.
+All names, numbers, and addresses are fictitious.
+
+--- SECTION 1: IDENTITY ---
+
+Full name: Jane Alexandra Doe
+Date of birth: 15/03/1988
+SSN: 078-05-1120
+Passport number: AB1234567
+Driver's license: D12345678
+
+Name & address combo:
+  John Michael Smith
+  742 Evergreen Terrace
+  Springfield, IL 62704
+
+--- SECTION 2: NATIONAL IDs (International) ---
+
+Austrian social security number: 1234 010180
+Belgian national number: 85.07.30-123.45
+Danish CPR: 010180-1234
+Finnish HETU: 010180-123A
+Irish PPS: 1234567FA
+Norwegian NIN: 01018012345
+Swedish NIN: 810301-1234
+Swiss AHV: 756.1234.5678.97
+Polish PESEL: 44051401359
+Romanian CNP: 1880315123456
+Indian Aadhaar: 2345 6789 0123
+South African ID: 8803155800085
+Brazilian RG: 12.345.678-9
+Mexican CURP: GARC850101HDFRRL09
+Singapore NRIC: S1234567D
+Hong Kong ID: A123456(7)
+South Korean RRN: 880315-1234567
+Israeli ID: 036721245
+
+--- SECTION 3: TAX & VAT IDs ---
+
+This section contains tax identification numbers:
+Tax ID (Austria): ATU12345678
+VAT number Belgium: BE 0123456789
+German VAT: DE123456789
+French VAT: FR12345678901
+Indian PAN: ABCDE1234F
+Indian GSTIN: 27ABCDE1234F1Z5
+Brazilian CPF: 123.456.789-09
+Brazilian CNPJ: 12.345.678/0001-95
+Argentine CUIT: 20-12345678-3
+
+--- SECTION 4: FINANCIAL DATA ---
+
+Credit card: 4532 0151 2345 6789
+IBAN: GB29 NWBK 6016 1331 9268 19
+SWIFT/BIC: NWBKGB2L
+US bank account: routing 021000021, account 123456789012
+Crypto wallet (BTC): 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa
+Crypto wallet (ETH): 0x742d35Cc6634C0532925a3b844Bc9e7595f2bD18
+
+Australian BSB: 012-345 account 12345678
+Canadian transit: 00100-004
+
+--- SECTION 5: DIGITAL LIFE ---
+
+API key: sk_live_4eC39HqLyjWDarjtT1zdp7dc
+Private key:
+-----BEGIN RSA PRIVATE KEY-----
+MIIBogIBAAJBALRiMLAHudeSA/x3hB2f+2NRkJHFakeKeyForTestingDWQ
+-----END RSA PRIVATE KEY-----
+AWS access key: AKIAIOSFODNN7EXAMPLE
+Password: MyS3cretP@ssw0rd!2024
+
+Email addresses: john.doe@example.com, jane.smith@corporation.net
+Phone numbers: +1 (555) 123-4567, +44 7911 123456, +91 98765 43210
+
+--- SECTION 6: HEALTH DATA ---
+
+NHS number: 943 476 5919
+Medicare (AU): 2123 45670 1
+Medical record number: MRN-2024-00567
+Diagnosis: Patient diagnosed with Type 2 Diabetes Mellitus (E11.9)
+and prescribed Metformin 500mg twice daily.
+Blood type: O-negative. Allergies: Penicillin.
+
+--- SECTION 7: FAMILY & MINORS ---
+
+Child's name: Tommy Smith (age 8, 3rd grade)
+School: Springfield Elementary School
+Emergency contact: parent Mary Smith at (555) 987-6543
+Pediatrician: Dr. Roberts, Springfield Children's Hospital
+
+--- SECTION 8: LOCATION & TRAVEL ---
+
+Home address: 1600 Pennsylvania Avenue NW, Washington, DC 20500
+GPS coordinates: 38.8977, -77.0365
+Travel itinerary:
+  Flight: AA 1234 departing LAX 10:30am → JFK 7:15pm on June 15
+  Hotel: The Grand Hyatt, 109 E 42nd St, New York, NY 10017
+  Return: AA 5678 departing JFK 8:00pm → LAX 11:30pm on June 20
+
+--- SECTION 9: MIXED CONTEXT (FALSE POSITIVE STRESS TEST) ---
+
+Order #1234567890 was shipped via tracking number 1Z999AA10123456784.
+Product serial: SN-2024-ABCD-5678
+Invoice reference: INV-2024-00123
+Conference room booking: Room 307, 2:00 PM - 3:30 PM
+Server IP: 192.168.1.100 (internal network)
+MAC address: 00:1A:2B:3C:4D:5E
+
+The temperature today is 72°F (22°C).
+The score was 85-77 in favor of the home team.
+Page 1 of 15. Document version 3.2.1.
+
+==========================================================
+END OF DUMMY DATA — DO NOT DISTRIBUTE

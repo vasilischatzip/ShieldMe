@@ -1,0 +1,26 @@
+# minor-name positive corpus — each line should trigger the detector
+# Child name + age/grade/relationship patterns
+Emma, age 8 attends school
+My son Oliver age 5 birthday party
+Sophie, age 10 student at local school
+Daughter Isabella, age 12 grade 6
+My kid Liam, age 7 second grade
+Son Noah age 9 plays soccer after school
+Emma age 8 is in third grade
+Child Olivia, age 11 participates in choir
+My daughter Ava age 6 kindergarten class
+Son Ethan age 13 grade 8 student
+Isabella, age 4 preschool registration
+My kid James, age 10 birthday celebration
+Daughter Charlotte, age 9 grade 4 academic
+Son Benjamin age 14 high school freshman
+Child Mia, age 3 daycare enrollment
+My son Henry age 7 first grade reading
+Emma Jane, age 8 elementary school
+Sophia Marie, age 11 grade 5 student
+Oliver James, age 6 kindergarten son
+My daughter Grace, age 12 middle school child
+Son Lucas age 8 soccer team birthday
+Daughter Amelia, age 9 grade 3 arts program
+Kid Elijah, age 5 preschool son class
+My child Zoe, age 7 second grade daughter

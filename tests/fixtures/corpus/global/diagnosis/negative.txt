@@ -1,0 +1,22 @@
+# diagnosis negative corpus — should NOT trigger
+# ICD-like codes without medical context, or non-medical numeric codes
+product code E11.9
+catalog item J45.901
+part number I10.5
+version F32.9
+model K21.0
+reference M79.3 in the catalog
+stock keeping unit J06.9
+warehouse location N39.0
+serial designation M54.5
+configuration B34.9
+revision L30.9
+item code Z23.4 shipping department
+module version G43.909
+build F41.1 release notes
+firmware J20.9 device update
+document revision K92.1
+file format M06.9 schema
+protocol version I25.10
+specification J44.1 hardware manual
+revision number E78.5 software release

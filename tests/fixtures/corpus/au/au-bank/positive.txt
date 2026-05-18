@@ -1,0 +1,25 @@
+BSB: 062-001 Account: 12345678 — CommBank chequing account.
+Please set up direct debit to BSB 032-077 account number 945678.
+Payment details: BSB 733-111 account 98765432 — Westpac NSW.
+EFT transfer: BSB: 013-006 Account: 00123456 — ANZ Melbourne.
+Salary details: BSB 082-347 account number 84930285 (NAB savings).
+Payroll form BSB 063-050 acct 10293847 for weekly salary credit.
+Banking details: BSB: 106-077 Account: 33456789 (Bendigo Bank).
+Refund issued to BSB 633-000 account 91827364 — Bank of Queensland.
+Direct credit form — BSB 082-182 account 55443322 — NAB Docklands.
+BSB 736-083 account number 23456789 — Suncorp bank transfer due today.
+Payee: BSB: 063-786 Account: 72836455, reference: SUP-1029.
+Please redirect salary to BSB 733-217 account 19283745.
+Standing payment: bank state branch 082-356, account 56473829.
+Supplier EFT: BSB 065-000 account no. 22334455 — St George NSW.
+Bank account details: BSB 083-170 Account Number 29485761.
+Expense claim reimbursement to BSB 012-433 account 66778899.
+Milestone payment to BSB 066-154 account 11223344 — Macquarie Bank.
+OSKO payment: BSB: 080-000 account: 45671234 — MyState Bank.
+Transfer reference: BSB 034-002 account 87349201 — Bank of Melbourne.
+Contractor payment: BSB 082-057 account number 30192847.
+BSB 032-000 account 39485761 — Westpac internet banking.
+Final payment to BSB: 063-108 Account: 19283746 ref: PROJ-A7.
+Regular BPAY: BSB 062-692 account 44332211 — CBA Newtown.
+Deposit to BSB 036-000 account 73829104 by close of business.
+Vendor payment: bsb 082-178 account number 66442288.

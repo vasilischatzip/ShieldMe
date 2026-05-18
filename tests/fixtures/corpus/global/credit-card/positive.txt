@@ -1,0 +1,26 @@
+# Credit card positive corpus — each line should trigger the detector
+# All PANs are standard test numbers or Luhn-valid generated values
+My credit card number is 4111111111111111 please process it
+Card: 4532015112830366
+Payment with 5500005555555559 on file
+Amex: 378282246310005
+Discover card 6011111111111117
+JCB card number 3530111333300000
+Diners club 36227206271667
+Visa: 4916338506082832
+MasterCard 5105105105105100
+Please charge 4539578763621486 for the subscription
+Credit card on file: 4485275742308327
+New payment method 4111 1111 1111 1111 added
+Stored card: 5500 0055 5555 5559
+Card number: 4532-0151-1283-0366
+AMEX: 3782 822463 10005
+Debit: 4916338506082832
+Full PAN is 4000000000000002 for testing
+CC: 4539 1488 0343 6467
+My Visa card 4916338506082832 expiry 01/25
+Payment details: pan 5555555555554444 cvv 123
+Card on file 6011000990139424 used for checkout
+Maestro 6759649826438453 linked to account
+Discover test 6011111111111117 for QA
+Visa Classic 4222222222222 thirteen digits valid

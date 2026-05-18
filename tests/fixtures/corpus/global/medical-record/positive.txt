@@ -1,0 +1,22 @@
+# medical-record positive corpus — each line should trigger the detector
+# MRN values with strong hospital/medical context
+MRN: 123456789 — Patient admitted to hospital on 01/15
+Medical record number 987654 for patient at General Hospital
+Patient MRN 5543210 clinic visit on March 3rd
+Hospital medical record: 1234567 — discharge summary
+MRN 8765432 — outpatient clinic appointment scheduled
+Patient record number: 654321 admitted to St. Mary's Hospital
+Medical record 3456789 for patient follow-up appointment
+MRN: 9876543 clinic referral from primary care physician
+Hospital patient ID: 123456 — MRN assigned at admission
+Medical record number: 7654321 patient history review
+MRN 4321098 — inpatient surgery authorization hospital
+Patient medical record: 2109876 attending physician clinic
+Record number MRN5432109 — hospital discharge notes
+Medical file number 6789012 patient emergency room clinic
+MRN: 8901234 — patient readmission to hospital ward
+Clinical record number: 3210987 annual checkup clinic
+Hospital MRN: 7890123 — patient transfer from ICU
+Medical record ID: 5678901 patient follow-up clinic visit
+MRN 2345678 — patient history hospital records department
+Patient record 9012345 — attending physician notes clinic

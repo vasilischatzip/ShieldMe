@@ -1,0 +1,21 @@
+# SSN negative corpus — should NOT trigger
+000-12-3456 (area 000)
+666-12-3456 (area 666)
+987-65-4321 (area ≥900)
+001-00-0001 (group 00)
+234-56-0000 (serial 0000)
+078-05-1120 (blacklisted Hilda)
+123-45-6789 (widely known invalid)
+Phone: 555-12-3456
+Date: 2024-01-15
+Order: 100-20-3040
+Tracking 200-30-5060
+Reference 300-40-7080
+Zip+4: 90210-1234
+IP: 192-168-1-1
+Product SKU 100-50-9999
+Invoice 200-60-8888
+Part number 001-99-5678
+Support ticket 100-01-0000 (serial 0000)
+Model 234-56-7890-X (extra char)
+Item ref 524.61.1234 (dots not dashes)

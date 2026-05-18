@@ -1,0 +1,22 @@
+# family-address negative corpus — should NOT trigger
+# Addresses without family/home context, or shipping/business addresses
+Ship to 123 Main Street
+Deliver to 456 Oak Avenue
+Send package to 789 Elm Street
+Office at 234 Maple Drive
+Business address: 567 Pine Road
+Billing address: 890 Cedar Lane
+Return address: 123 Birch Court
+Warehouse: 456 Willow Way
+Corporate headquarters: 789 Spruce Avenue
+Store location: 234 Poplar Street
+Distribution center: 567 Chestnut Road
+Factory: 890 Walnut Drive
+Mail stop: 123 Hickory Lane
+P.O. Box 456 Ash Street post office
+Registered office: 789 Magnolia Court
+Invoice address: 234 Sycamore Place
+Sender: 567 Mulberry Lane suite 200
+Company premises: 890 Dogwood Drive floor 4
+Registered address: 123 Redbud Court LLC
+Billing dept: 456 Sweetgum Avenue

@@ -1,0 +1,28 @@
+{
+  "id": "preset.residency.de",
+  "version": 1,
+  "titleI18nKey": "preset_residency_de_title",
+  "descriptionI18nKey": "preset_residency_de_desc",
+  "locale": "de",
+  "shipTier": "ga",
+  "sourceNote": "Germany Financial Data · Germany PII",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

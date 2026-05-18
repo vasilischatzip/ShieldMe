@@ -1,0 +1,21 @@
+# SSN positive corpus
+SSN: 001-01-0001
+Social Security Number 234-56-7890
+SSN 524-61-1234
+Taxpayer ID: 042-81-1000
+SSN on record: 345-67-8901
+ITIN 600-81-2345
+Social security 001-01-9999
+SSN: 550-12-3456
+Employee SSN 444-55-6666
+Tax ID 100-01-0001
+Social Security 200-01-0001
+ITIN: 300-01-0001
+SSN number: 400-01-0001
+Taxpayer 500-01-0001
+SSN: 101-01-0001
+ID number SSN 202-02-0002
+SSN on file 303-03-0003
+Social security 404-04-0004
+ITIN number 505-05-0005
+Employer SSN: 606-06-0006

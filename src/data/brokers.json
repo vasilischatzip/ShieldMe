@@ -1,0 +1,156 @@
+[
+  {
+    "id": "spokeo",
+    "name": "Spokeo",
+    "optOutUrl": "https://www.spokeo.com/optout",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "whitepages",
+    "name": "Whitepages",
+    "optOutUrl": "https://www.whitepages.com/suppression-requests",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "peoplefinder",
+    "name": "PeopleFinder",
+    "optOutUrl": "https://www.peoplefinder.com/optout.php",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "beenverified",
+    "name": "BeenVerified",
+    "optOutUrl": "https://www.beenverified.com/app/optout/search",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "intelius",
+    "name": "Intelius",
+    "optOutUrl": "https://www.intelius.com/optout",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "instantcheckmate",
+    "name": "Instant Checkmate",
+    "optOutUrl": "https://www.instantcheckmate.com/opt-out/",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "truthfinder",
+    "name": "TruthFinder",
+    "optOutUrl": "https://www.truthfinder.com/opt-out/",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "peekyou",
+    "name": "PeekYou",
+    "optOutUrl": "https://www.peekyou.com/about/contact/optout/index",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "radaris",
+    "name": "Radaris",
+    "optOutUrl": "https://radaris.com/page/how-to-remove",
+    "formDifficulty": "hard",
+    "automationSupported": false
+  },
+  {
+    "id": "peoplefinders",
+    "name": "PeopleFinders",
+    "optOutUrl": "https://www.peoplefinders.com/opt-out",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "fastpeoplesearch",
+    "name": "FastPeopleSearch",
+    "optOutUrl": "https://www.fastpeoplesearch.com/removal",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "mylife",
+    "name": "MyLife",
+    "optOutUrl": "https://www.mylife.com/ccpa/index.pubview",
+    "formDifficulty": "hard",
+    "automationSupported": false
+  },
+  {
+    "id": "zabasearch",
+    "name": "ZabaSearch",
+    "optOutUrl": "https://www.zabasearch.com/block_records/",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "411",
+    "name": "411.com",
+    "optOutUrl": "https://www.411.com/privacy",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "usphonebook",
+    "name": "USPhoneBook",
+    "optOutUrl": "https://www.usphonebook.com/opt-out",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "clustrmaps",
+    "name": "ClustrMaps",
+    "optOutUrl": "https://clustrmaps.com/bl/opt-out",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "dataveria",
+    "name": "Dataveria",
+    "optOutUrl": "https://dataveria.com/ng/control/privacy",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "cyberbackgroundchecks",
+    "name": "Cyber Background Checks",
+    "optOutUrl": "https://www.cyberbackgroundchecks.com/removal",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "usa-people-search",
+    "name": "USA People Search",
+    "optOutUrl": "https://www.usa-people-search.com/manage/",
+    "formDifficulty": "medium",
+    "automationSupported": false
+  },
+  {
+    "id": "publicrecordsnow",
+    "name": "Public Records Now",
+    "optOutUrl": "https://www.publicrecordsnow.com/static/view/optout",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "addresses",
+    "name": "Addresses.com",
+    "optOutUrl": "https://www.addresses.com/optout.php",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  },
+  {
+    "id": "peoplewhiz",
+    "name": "PeopleWhiz",
+    "optOutUrl": "https://www.peoplewhiz.com/remove-my-info",
+    "formDifficulty": "easy",
+    "automationSupported": false
+  }
+]

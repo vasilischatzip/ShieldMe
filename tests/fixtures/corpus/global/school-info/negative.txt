@@ -1,0 +1,22 @@
+# school-info negative corpus — should NOT trigger
+# Generic school references without names, or unrelated named entities
+The school is nearby
+There is a school on that street
+I attended school in the 1990s
+School lunch program is available
+School bus route 42
+Public school system in the city
+University research program
+College campus building
+The gymnasium is open
+After-school activities available
+Community center programs
+Evening classes available
+Training program certification
+Professional development course
+Business school of thought
+Google headquarters campus
+Microsoft campus in Redmond
+Amazon distribution center
+Apple Park corporate office
+IBM research laboratory

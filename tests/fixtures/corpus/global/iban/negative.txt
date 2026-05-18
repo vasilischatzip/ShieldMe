@@ -1,0 +1,22 @@
+# IBAN negative corpus — these should NOT trigger the detector
+# Invalid mod-97, product codes, identifiers that look like IBANs
+GB82WEST12345698765433 (off-by-one, invalid mod-97)
+DE00370400440532013000 (check digits 00, always invalid)
+NOTANIBAN
+Just the text GB with no digits
+Country code US1234567890123 (not a real IBAN country code length)
+PO Box 12345
+Reference: REF-GB82-ABCD (not an IBAN)
+Stock ticker: AAPL1234
+Serial: AT611904-INVALID
+AWS region: eu-west-1
+Product code: NL91BULK0417
+Article GB82 section 2 paragraph 3
+Part number BE685390-0754-7034 (dashes in wrong place)
+ZIP+4: 90210-1234
+MAC address: DE:89:37:04:04:40
+Model DE89-SIGMA-4405-320
+SKU AT61-190430-023457
+Customer ID NL91-ABNA-BULK
+Route FR76-300-600-001
+Reference CH93-0076-BULK

@@ -1,0 +1,26 @@
+{
+  "id": "preset.default.global",
+  "version": 1,
+  "titleI18nKey": "preset_default_global_title",
+  "descriptionI18nKey": "preset_default_global_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "ShieldMe curated baseline — the minimum everyone should have.",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":  true,
+    "iban":         true,
+    "ssn":          true,
+    "passport":     true,
+    "api-key":      true,
+    "private-key":  true,
+    "password":     true
+  }
+}

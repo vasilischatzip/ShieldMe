@@ -1,0 +1,22 @@
+# home-address negative corpus — should NOT trigger
+# Shipping/billing addresses or business addresses without home/personal context
+Shipping address: 123 Main Street billing department
+Delivery address: 456 Oak Avenue warehouse
+Send to: 789 Elm Street shipping center
+Return to: 234 Maple Drive returns dept
+Office location: 567 Pine Road suite 100
+Corporate billing: 890 Cedar Lane accounting
+Ship via 123 Birch Court distribution
+Business premises: 456 Willow Way LLC
+Send package to 789 Spruce Avenue
+Billing contact: 234 Poplar Street finance
+Registered office 567 Chestnut Road company
+Mail to: 890 Walnut Drive PO Box 42
+Shipping department: 123 Hickory Lane
+Freight: 456 Ash Street dock entrance
+Commercial address 789 Magnolia Court business
+Delivery instructions: 234 Sycamore Place
+Warehouse at 567 Mulberry Lane building B
+Dispatch center: 890 Dogwood Drive bay 3
+Invoice address: 123 Redbud Court accounts
+Business mailing: 456 Sweetgum Avenue floor 5

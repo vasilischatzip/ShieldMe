@@ -1,0 +1,21 @@
+# Private key positive corpus — each line should trigger the detector
+-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA0Z3VS5JJcds3xHn==\n-----END RSA PRIVATE KEY-----
+-----BEGIN EC PRIVATE KEY-----\nMHQCAQEEIOxxxxxxxxxxxxxxxxxxxxxxx=\n-----END EC PRIVATE KEY-----
+-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC=\n-----END PRIVATE KEY-----
+-----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAA\n-----END OPENSSH PRIVATE KEY-----
+-----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFHDBOBgkqhkiG9w0BBQ0w\n-----END ENCRYPTED PRIVATE KEY-----
+-----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: GnuPG v2\n\nlQOYBF==\n-----END PGP PRIVATE KEY BLOCK-----
+My RSA key: -----BEGIN RSA PRIVATE KEY-----\ndata\n-----END RSA PRIVATE KEY-----
+Attached private key -----BEGIN EC PRIVATE KEY-----\nbase64data\n-----END EC PRIVATE KEY-----
+config key: -----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAA==\n-----END PRIVATE KEY-----
+SSH key file -----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAAAABG5vbmU=\n-----END OPENSSH PRIVATE KEY-----
+PEM encoded -----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEA0Z3VS5JJ=\n-----END RSA PRIVATE KEY-----
+key content -----BEGIN EC PRIVATE KEY-----\nMHQCAQEEIOMPTfTL5SLmv7==\n-----END EC PRIVATE KEY-----
+backup -----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0B\n-----END PRIVATE KEY-----
+deploy key -----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC1rZXktdjEAAA==\n-----END OPENSSH PRIVATE KEY-----
+cert -----BEGIN ENCRYPTED PRIVATE KEY-----\nMIIFHDBOBgkqhkiG9w0BBQ0w\n-----END ENCRYPTED PRIVATE KEY-----
+gpg -----BEGIN PGP PRIVATE KEY BLOCK-----\nVersion: GnuPG v1\n\nmQEN\n-----END PGP PRIVATE KEY BLOCK-----
+server -----BEGIN RSA PRIVATE KEY-----\nMIIEowIBAAKCAQEAhp25k==\n-----END RSA PRIVATE KEY-----
+tls -----BEGIN EC PRIVATE KEY-----\nMHQCAQEEIOhp25k==\n-----END EC PRIVATE KEY-----
+stored -----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgk=\n-----END PRIVATE KEY-----
+embedded -----BEGIN OPENSSH PRIVATE KEY-----\nb3BlbnNzaC\n-----END OPENSSH PRIVATE KEY-----

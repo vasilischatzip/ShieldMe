@@ -1,0 +1,22 @@
+# medical-record negative corpus — should NOT trigger
+# Numeric codes without medical context
+12345678
+Order #987654321 has shipped
+Invoice number: 765432
+Serial: 543210987
+Account number: 456789012
+Tracking: 1Z987654321
+Transaction 9876543210
+Booking reference: 765432
+Phone: 555-123-4567
+Product serial 8765432
+Part number 7654321
+Employee badge: 654321
+Zip code: 90210
+Route number: 543210
+Credit card: 4111111111111111
+Customer ID: 432109
+Document ref: 321098
+Case file: 210987
+Version: 1.2.3456789
+Build number: 9876543

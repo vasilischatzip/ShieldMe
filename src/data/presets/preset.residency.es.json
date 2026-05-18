@@ -1,0 +1,28 @@
+{
+  "id": "preset.residency.es",
+  "version": 1,
+  "titleI18nKey": "preset_residency_es_title",
+  "descriptionI18nKey": "preset_residency_es_desc",
+  "locale": "es",
+  "shipTier": "ga",
+  "sourceNote": "Spain PII · Spain Financial Data",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

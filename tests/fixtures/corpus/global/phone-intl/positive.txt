@@ -1,0 +1,32 @@
+# Phone number positive corpus — one text snippet per line
+# Each line MUST cause phoneIntlDetector.scan() to return at least one finding.
+Call us at +1 (555) 867-5309 for customer support.
+Mobile: +44 7911 123456
+Fax line: +33 1 23 45 67 89
+Headquarters phone: +49 30 12345678
+Tokyo office: +81 3-1234-5678
+Sydney office: +61 2 9876 5432
+New York direct: (212) 555-0100
+Madrid office: +34 91 123 45 67
+São Paulo: +55 11 9876-5432
+Rome office: +39 06 1234 5678
+San Francisco: (415) 867-5309
+Amsterdam: +31 20 123 4567
+Mexico City: +52 55 1234 5678
+Moscow office: +7 495 123-45-67
+Toll free: +1-800-867-5309
+Beijing office: +86 10 12345678
+Zurich: +41 44 123 45 67
+Copenhagen: +45 12 34 56 78
+Oslo: +47 12 34 56 78
+Los Angeles: (310) 555-0101
+Dublin: +353 1 234 5678
+Brussels: +32 2 123 45 67
+Athens: +30 210 1234567
+Vancouver: +1 (604) 555-9876
+Customer line: (800) 555-0199
+Helsinki: +358 9 1234567
+Warsaw: +48 22 123 45 67
+Prague: +420 2 1234 5678
+Bucharest: +40 21 123 45 67
+Lisbon: +351 21 123 45 67

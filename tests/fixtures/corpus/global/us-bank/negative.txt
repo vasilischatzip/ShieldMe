@@ -1,0 +1,22 @@
+# US Bank routing + account negative corpus
+# Invalid routing numbers, isolated routing, missing account, wrong format
+routing: 021000020 account: 123456789012 (bad routing checksum)
+account: 123456789012 (no routing number)
+routing: 021000021 (no account number)
+Phone: 021-000-021 x123456789
+ZIP: 02100-0021
+Order routing 021000020 ref 12345
+routing 999999999 account 12345678 (bad checksum)
+SSN 021-00-0021
+IP address 021.000.021.123
+Serial routing-021000021-unit
+Reference 0210000210 (10 digits, too long)
+Part number 021000021X account pending
+routing: abcd account: 12345678 (non-digits)
+Date 02/10/00021
+Route 21 highway account 99
+tracking: 021000021 order: 12345678901 (not bank context)
+routing 000000000 account 123456789 (all zeros fails ABA)
+rtn 021000021 (account too far away)
+Lot number: 02100002 item: 123456789012
+Model 021-000-021 version 12345678901

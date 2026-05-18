@@ -1,0 +1,25 @@
+Please set up direct deposit: transit 10152 institution 003 account 1234567890.
+Pre-authorized debit: transit number 00062 institution 002 account 9876543.
+Bank details for payroll: transit 06842 institution number 004 account 12345678.
+Direct deposit form — transit 04721 institution 003 account 39285641.
+Wire payment: transit: 00042 institution: 001 account: 7293841 (BMO).
+Vendor EFT: transit 08090 institution 010 account 1029384756 — CIBC.
+Supplier payment: transit number 30800 institution 006 account 8675309.
+Bank transfer: transit 07080 institution 004 account 00456789 — TD Bank.
+Payroll system — transit 04841 institution 016 account 1234512345.
+Please update: transit no. 08440 institution no. 003 account 92837465.
+EFT details: transit: 04382 institution: 002 account: 55443322.
+Monthly fee debited from transit 16271 institution 004 account 12341234.
+Contractor invoice: transit 08090 institution 010 account 0034567890.
+Refund issued to: transit 38009 institution 003 account 19283746 (RBC).
+Pre-authorized payment form: transit number 08440, institution 006, account 2948576.
+Direct debit details: branch number 09432 institution 001 acct 88776655.
+Automatic billing: routing institution 004 transit 07080 account 11223344.
+Payee bank: transit 02243 institution 002 (Scotiabank) account 9182736.
+Monthly savings: transit 06252 institution 003 account number 63748291.
+Credit union EFT: transit 34905 institution 828 account 12345678.
+Bank wire: transit 00890 institution 865 account 99887766 — credit union.
+Pre-authorized payment: transit 72000 institution 339 account 55667788.
+Payroll: transit 08090 institution 010 account 0102030405.
+Recurring payment: transit 01498 institution 003 account 87654321.
+Direct deposit to transit 04841 institution no. 004 account 29384756.

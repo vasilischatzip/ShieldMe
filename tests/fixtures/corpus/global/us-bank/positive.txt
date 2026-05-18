@@ -1,0 +1,21 @@
+# US Bank routing + account positive corpus
+routing: 021000021 account: 123456789012
+ABA 322271627 acct 9876543210
+routing number 021000089 account number 00123456789
+Routing 064000017 Account 1234567890
+aba: 125000024 acct: 98765432101
+routing #011000028 account #123456789012345
+wire routing 026009593 account 12345678901234
+ACH routing 063100277 account 987654321098765
+Routing: 044000037 Account: 12345678901
+routing 071000013 account 1234567890123456
+direct deposit routing 021000021 account 9876543210
+bank routing 322271627 account number 12345678901234
+ABA number 021000089 bank account 123456789
+routing: 064000017 acc: 9876543210123
+checking routing 125000024 account 12345678901
+savings routing 011000028 account 98765432109
+rtn 026009593 acct 1234567890123
+bank routing number 063100277 account number 9876543210
+routing 044000037 bank account 12345678901234567
+ABA: 071000013 account number: 1234567890123

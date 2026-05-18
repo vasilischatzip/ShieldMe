@@ -1,0 +1,29 @@
+{
+  "id": "preset.residency.gr",
+  "version": 1,
+  "titleI18nKey": "preset_residency_gr_title",
+  "descriptionI18nKey": "preset_residency_gr_desc",
+  "locale": "gr",
+  "shipTier": "ga",
+  "sourceNote": "Greece PII (Microsoft DLP) — extended with AMKA per local research",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "ssn":             true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

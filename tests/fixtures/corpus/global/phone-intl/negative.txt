@@ -1,0 +1,32 @@
+# Phone number negative corpus — one text snippet per line
+# Each line MUST NOT cause phoneIntlDetector.scan() to return any finding.
+The order total is $1,234.56 with tax included.
+Software version 10.14.6 released on 2024-01-15.
+The meeting room is on the 3rd floor in building B.
+Product SKU: ABC-1234-5678-901 is out of stock.
+IP address: 10.0.0.1, subnet mask: 255.255.255.0.
+The 2024 fiscal year report shows 8% growth.
+Temperature reading: 37.5 degrees Celsius today.
+Account balance: $12,345.67 as of last Thursday.
+Highway 101 runs along the California coastline for miles.
+GPS: 48.8566° N, 2.3522° E — Paris city centre.
+File size: 1,234,567 bytes, compressed to 456 KB.
+Coupon code SAVE20 expires on December 31st.
+The train arrives at platform 7 at 14:23.
+Section 3.14 of the manual covers advanced configuration.
+Order #20240115001 has been processed and confirmed.
+Latitude 51.5074 and longitude -0.1278 define central London.
+Serial number: SN-2024-001-AB-1234 is under warranty.
+The password requires at least 8 mixed-case characters.
+Network: 1000 Mbps download, 500 Mbps upload over fibre.
+Invoice INV-2024-12345 for $567.89 is due in 30 days.
+Zip code range for this postal zone: 90001 to 90012.
+Version 2024.01.15.1 was deployed to production at noon.
+The server's MAC address is 00:1A:2B:3C:4D:5E.
+Error code 0x80070057 indicates a parameter error.
+The library contains 1234567 books across 20 floors.
+Elevation: 3,776 metres above sea level at the summit.
+The driver's licence expires on 31/12/2026.
+The student ID is 20240001 assigned at registration.
+Section 12.3.4.5 applies to residents of this region.
+API rate limit: 100 requests per 60-second window.

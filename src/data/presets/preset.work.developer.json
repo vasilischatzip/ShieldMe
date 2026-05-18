@@ -1,0 +1,22 @@
+{
+  "id": "preset.work.developer",
+  "version": 1,
+  "titleI18nKey": "preset_work_developer_title",
+  "descriptionI18nKey": "preset_work_developer_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "ShieldMe curated — developer secrets baseline",
+  "categories": {
+    "myMoney":       { "enabled": false },
+    "myIdentity":    { "enabled": false },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "api-key":     true,
+    "private-key": true,
+    "password":    true
+  }
+}

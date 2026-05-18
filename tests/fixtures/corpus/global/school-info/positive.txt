@@ -1,0 +1,26 @@
+# school-info positive corpus — each line should trigger the detector
+# School name patterns with enrollment/attendance context
+She attends Lincoln Elementary School in the district
+Enrolled at Riverside High School for the semester
+My child goes to Oakwood Middle School on Oak Street
+She attends Jefferson Elementary School third grade
+Enrolled at Washington High School freshman year
+Student at Maple Elementary School district program
+My son attends Cedar Middle School this year
+Daughter enrolled at Lakewood Elementary School
+Attends Greenfield High School for ninth grade
+Student at Hillcrest Elementary School morning session
+My child attends Westview Middle School athletics
+Enrolled at Pinecrest Elementary School after school
+She goes to Sunnydale High School drama program
+Student at Brookside Elementary School reading group
+My daughter attends Valley View Middle School
+Enrolled at Summit Elementary School gifted program
+Attends Clearwater High School varsity team
+Student at Meadowbrook Elementary School lunch program
+My son enrolled at Riverside Middle School science
+Goes to Oakdale High School band practice
+Attends Sunrise Elementary School daycare pickup
+Student at Northside Middle School honor roll
+My child enrolled at Eastwood High School junior class
+Goes to Willowbrook Elementary School special needs program

@@ -1,0 +1,26 @@
+{
+  "id": "preset.work.payments",
+  "version": 1,
+  "titleI18nKey": "preset_work_payments_title",
+  "descriptionI18nKey": "preset_work_payments_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "PCI Data Security Standard (PCI DSS)",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":  true,
+    "iban":         true,
+    "us-bank":      true,
+    "crypto-wallet": true,
+    "api-key":      true,
+    "private-key":  true,
+    "password":     true
+  }
+}

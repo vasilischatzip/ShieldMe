@@ -1,0 +1,29 @@
+{
+  "id": "preset.residency.fr",
+  "version": 1,
+  "titleI18nKey": "preset_residency_fr_title",
+  "descriptionI18nKey": "preset_residency_fr_desc",
+  "locale": "fr",
+  "shipTier": "ga",
+  "sourceNote": "France Data Protection Act · France PII · France Financial Data",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "ssn":             true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

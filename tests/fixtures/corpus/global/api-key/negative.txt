@@ -1,0 +1,22 @@
+# API key negative corpus — should NOT trigger
+# Short strings, wrong prefixes, public keys, generic IDs
+AKIAI (too short, only 5 chars)
+ghp_short (too short)
+AIzaShort (too short after AIza)
+sk_live_ (no value after prefix)
+Bearer (no token following)
+AKIA (only 4 chars)
+api_key = your_api_key_here (placeholder)
+token = <INSERT_TOKEN_HERE> (placeholder)
+key = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx (x placeholder)
+PUBLIC_KEY=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgK (not AKIA prefix)
+session_id = 550e8400-e29b-41d4-a716-446655440000 (UUID)
+product_code = ABCDEF123456
+order_id = 1234567890
+tracking = 9400111899221234567890
+reference = REF-2024-001-ABC
+certificate = BEGIN CERTIFICATE (not private key)
+api_version = v2024-01-01
+build_number = 12345678
+config_id = env-production-us-east-1
+model = gpt-4-turbo

@@ -1,0 +1,18 @@
+{
+  "id": "preset.radar.essentials",
+  "version": 1,
+  "titleI18nKey": "preset_radar_essentials_title",
+  "descriptionI18nKey": "preset_radar_essentials_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "ShieldMe curated — Exposure Radar essentials (M4)",
+  "categories": {
+    "myMoney":       { "enabled": false },
+    "myIdentity":    { "enabled": false },
+    "myDigitalLife": { "enabled": false },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {}
+}

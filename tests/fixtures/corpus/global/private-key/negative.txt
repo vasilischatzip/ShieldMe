@@ -1,0 +1,21 @@
+# Private key negative corpus — should NOT trigger
+-----BEGIN CERTIFICATE-----
+-----BEGIN PUBLIC KEY-----
+-----BEGIN RSA PUBLIC KEY-----
+-----BEGIN CERTIFICATE REQUEST-----
+-----BEGIN X509 CRL-----
+-----BEGIN DH PARAMETERS-----
+This is a PEM file header without content
+BEGIN RSA PRIVATE KEY (no dashes)
+- - - BEGIN RSA PRIVATE KEY - - - (wrong delimiter)
+PRIVATE KEY without BEGIN header
+Encoded data: MIIEpAIBAAKCAQEA0Z3VS5JJ (no PEM wrapper)
+Public certificate: -----BEGIN CERTIFICATE-----\nMIIB...\n-----END CERTIFICATE-----
+CSR file: -----BEGIN CERTIFICATE REQUEST-----\ndata\n-----END CERTIFICATE REQUEST-----
+SSH public key: ssh-rsa AAAAB3NzaC1yc2E user@host
+Public key: -----BEGIN PUBLIC KEY-----\nMIIBIjAN\n-----END PUBLIC KEY-----
+RSA public: -----BEGIN RSA PUBLIC KEY-----\nMIIBCgKC\n-----END RSA PUBLIC KEY-----
+DH params: -----BEGIN DH PARAMETERS-----\nMIGHAoGB\n-----END DH PARAMETERS-----
+CRL: -----BEGIN X509 CRL-----\nMIIBpDCC\n-----END X509 CRL-----
+Plain text private key reference (no PEM block)
+Just the word BEGIN without the delimiter dashes

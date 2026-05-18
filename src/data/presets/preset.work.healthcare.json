@@ -1,0 +1,27 @@
+{
+  "id": "preset.work.healthcare",
+  "version": 1,
+  "titleI18nKey": "preset_work_healthcare_title",
+  "descriptionI18nKey": "preset_work_healthcare_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "U.S. HIPAA · UK Access to Medical Reports Act · Canada Health Information Act · Japan APPI (Health)",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "health-id":       true,
+    "medical-record":  true,
+    "diagnosis":       true,
+    "ssn":             true,
+    "national-id":     true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

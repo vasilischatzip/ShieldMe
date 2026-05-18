@@ -1,0 +1,32 @@
+# Email address positive corpus — one text snippet per line
+# Each line MUST cause emailDetector.scan() to return at least one finding.
+Send your reply to john.smith@company.com before Friday.
+The account belongs to alice.jones@gmail.com
+Please forward to mary.doe@university.edu for review.
+Invoice sent to billing@acme-inc.com — please confirm.
+cc: sarah.johnson@company.co.uk
+Reply-To: newsletter@brand.io
+Your registration email is user123@webmail.com
+Approved by dr.chen@medcenter.org
+Tech lead: r.patel@startup.dev
+Forward to hr@bigcorp.com for processing.
+Customer account: carlos.garcia@telco.es
+Employee record: nina.schmidt@company.de
+Backup contact: info@boutique.fr
+Emergency contact: ops@service.co.nz
+Admin email: webmaster@portal.gov
+Analytics export to analytics@platform.io
+Account email: maria.santos@email.pt
+Contact: firstname.lastname@organization.org
+Booking confirmation sent to traveler@hotel.com
+Please reach support at support-team@enterprise.co
+The primary user is j.smith+filter@provider.net
+Escalate to manager@division.company.com immediately.
+Team roster includes alex@dev.io and ben@dev.io
+Recovery address on file: backup.user@secure-mail.net
+Delegate access to assistant@law-firm.co.uk
+The form was submitted by applicant.2024@jobs.org
+Notify finance@accounts.biz about the discrepancy.
+Data owner: privacy@corp.example.org
+Reply from no-reply@notifications.service.com in inbox
+The email on the profile is user_name.99@domain.info

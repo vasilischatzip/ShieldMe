@@ -1,0 +1,24 @@
+# diagnosis positive corpus — each line should trigger the detector
+# ICD-10 codes with medical/clinical context
+Diagnosis: E11.9 — Type 2 diabetes mellitus patient condition
+ICD-10 code J45.901 asthma patient clinical assessment
+Patient diagnosis: I10 essential hypertension medical record
+Clinical diagnosis J06.9 upper respiratory infection patient
+ICD code: F32.9 major depressive disorder patient diagnosis
+Diagnosis M79.3 panniculitis patient rheumatology clinic
+Patient condition: K21.0 GERD with esophagitis diagnosis
+ICD-10 diagnosis code: N39.0 urinary tract infection patient
+Medical diagnosis J18.9 pneumonia unspecified hospital patient
+Condition: E78.5 hyperlipidemia patient clinical notes
+ICD-10: L30.9 dermatitis unspecified patient diagnosis
+Diagnosis code: Z23 immunization patient encounter clinical
+Patient medical diagnosis M54.5 low back pain condition
+ICD code J20.9 acute bronchitis patient clinical visit
+Clinical condition: E11.65 diabetes with hyperglycemia patient
+Diagnosis: G43.909 migraine unspecified patient neurology
+ICD-10 code: F41.1 generalized anxiety disorder patient
+Medical condition: K92.1 melena patient clinical diagnosis
+Patient diagnosis: B34.9 viral infection unspecified clinical
+ICD-10: M06.9 rheumatoid arthritis unspecified patient
+Condition code: J44.1 COPD patient hospital admission diagnosis
+Diagnosis: I25.10 coronary artery disease patient cardiology

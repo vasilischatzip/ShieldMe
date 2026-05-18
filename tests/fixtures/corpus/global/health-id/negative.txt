@@ -1,0 +1,22 @@
+# health-id negative corpus — these should NOT trigger the health-id detector
+# Bare alphanumeric codes without health context
+UHC12345678
+Order number: ABC987654321
+Invoice ID: XYZ9876543
+Serial number: HM234567890
+Product code A123456789 in the catalog
+Tracking number UPS12345678901234
+Reference number: REF998877665
+Customer account: CA112233445
+Company registration number: CR778899001
+Transaction ID: TXN556677889 completed
+Booking reference: BK445566778 hotel
+Flight confirmation: AA998877665
+Project code: PRJ112233445
+Document number: DOC334455667
+Employee ID: EMP778899001 finance team
+Device serial: SN112233445566
+Part number: PN334455667889
+Version control: VCS998877665
+Library catalog: LC556677889001
+Registry entry: REG112233445566

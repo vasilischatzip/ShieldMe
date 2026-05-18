@@ -1,0 +1,21 @@
+# Password positive corpus
+password=MyS3cr3tPass!
+password: SuperSecretPassword123
+passwd=AnotherSecret1!
+pwd=MyP@ssw0rd99
+secret=MyLongSecretValue1
+api_key=AbCdEfGhIjKlMn0123456789
+auth_token=Bearer_Token_Value_12345
+password = "StrongPassword#2024"
+"password": "MyJsonPassword123"
+password: 'SingleQuotedPass1'
+DB_PASSWORD=DatabaseSecretPass1
+MYSQL_PASSWORD=SqlServer2024Pass
+redis_password=RedisSecretKey123
+secret_key=ApplicationSecret456
+PASSWORD=WindowsAdminPass1!
+api-key=RestApiSecret2024
+password_hash=PlainTextPass123 (hash not hashed)
+TOKEN=LongJWTTokenValue.payload.signature
+secret: applicationSecretValue123
+passwd: LinuxRootPassword1

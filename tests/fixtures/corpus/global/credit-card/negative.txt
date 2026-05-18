@@ -1,0 +1,26 @@
+# Credit card negative corpus — these should NOT trigger the detector
+# Phone numbers, order numbers, dates, serial numbers, random digit sequences
+Phone: +1 800 555 1234
+Order number: 1234567890123456 (fails Luhn)
+Order ref: ORD-1234567890
+Tracking: 1234567890123 (too short / no valid BIN)
+Invoice INV-20240101-001
+Document ID: 9876543210987654 (starts with 9, blocked)
+Latitude 40.7128 Longitude -74.0060
+Employee ID: 1234567890
+ZIP code: 90210
+Date of birth: 01/15/1985
+Social security ends in 1234
+License plate: ABC 1234
+Item barcode: 1234567890128
+Loyalty card: 1111111111111111 (all ones, Luhn fails)
+Reference code: 9999999999999999 (Luhn fails)
+Passport number A12345678
+Serial number SN-1234567890
+Driver license DL98765432
+Membership ID MBR-1234-5678
+Year 2024 month 01 day 15
+Invoice 20240115001234
+Model number XP-4111111111111
+Part number 5500-005-555-555 (fails Luhn)
+Room number 4111 floor 11

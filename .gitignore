@@ -1,0 +1,28 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.env*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+
+# Vite
+.vite/
+
+# pnpm
+.pnpm-store/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage
+coverage/
+
+# Secrets — never commit
+*.pem
+*.key
+*.p12
+tessdata/*.traineddata

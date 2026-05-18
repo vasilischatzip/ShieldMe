@@ -1,0 +1,21 @@
+# Passport negative corpus
+Product code: AB123456 (8 chars only, no keyword)
+Serial number: A1234567 for device
+Part number: B9876543 in inventory
+Model AB1234 (6 chars too short)
+Order reference A12345678 (no keyword context)
+Invoice code B87654321 order
+Tracking number C01X00T47 shipment
+Color code #AB1234 hex
+MAC address AB:12:34:56:78:90
+Reference D12345678 for support
+Article code E98765432 catalog
+SKU F12345678 warehouse
+Lot number G87654321 batch
+Item number H12345678 stock
+Barcode I12345678901234 (too long)
+Version J12345678 firmware
+Build number K23456789 release
+Config ID L12345678 server
+Asset tag M87654321 device
+Component N12345678 assembly

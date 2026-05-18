@@ -1,0 +1,32 @@
+# Email address negative corpus — one text snippet per line
+# Each line MUST NOT cause emailDetector.scan() to return any finding.
+Schedule a call this Tuesday at 3pm in the conference room.
+Our headquarters is at 123 Main Street, New York, NY 10001.
+The software version is 2.3.4-beta.1, released last quarter.
+Error 404: Page not found at /api/users/list.
+Server uptime: 99.9% over the last 30-day period.
+Follow @shieldme on social media for product updates.
+Visit our website at https://www.shieldme.io/docs/getting-started.
+The meeting was attended by Alice, Bob, and Carol.
+Invoice total: $1,234.56 due by January 31st.
+IP address 192.168.1.100 on port 8080 is unreachable.
+The API returned HTTP status code 200 OK.
+Database backup completed at midnight on Sunday.
+Your order #ORD-2024-001 has been shipped via express.
+The department store opens at 9am and closes at 9pm.
+GPS coordinates: 40.7128° N, 74.0060° W (Manhattan).
+Please read the full documentation at docs.company.com.
+The engineering team has 15 members and 3 designers.
+Your subscription auto-renews on the 15th of next month.
+The log file was last modified on 2024-01-15 at 14:30:00 UTC.
+Please enter your username to reset your account access.
+Server responded with HTTP/1.1 301 Moved Permanently.
+System specs: 16 GB RAM, 512 GB SSD, quad-core CPU.
+The zip code for that district is 10001.
+Product code: XJ-A1234-5678-90B is now discontinued.
+user@localhost is not a valid internet address.
+Contact @admin via the internal Slack channel.
+The @mention goes to the on-call engineer tonight.
+Username format: first.last (no domain required).
+An IP like 10.0.0.1 is not an email address.
+Internal tools use token-based auth, not email logins.

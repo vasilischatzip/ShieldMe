@@ -1,0 +1,39 @@
+{
+  "id": "preset.life.privacy-max",
+  "version": 1,
+  "titleI18nKey": "preset_life_privacymax_title",
+  "descriptionI18nKey": "preset_life_privacymax_desc",
+  "locale": "global",
+  "shipTier": "ga",
+  "sourceNote": "ShieldMe curated — maximum sensitivity, all GA detectors",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": true },
+    "myLocation":    { "enabled": true }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "us-bank":         true,
+    "crypto-wallet":   true,
+    "ssn":             true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "medical-record":  true,
+    "diagnosis":       true,
+    "minor-name":      true,
+    "school-info":     true,
+    "family-address":  true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true,
+    "home-address":    true,
+    "gps-coords":      true,
+    "itinerary":       true
+  }
+}

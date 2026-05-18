@@ -1,0 +1,22 @@
+# Crypto wallet negative corpus — should NOT trigger
+# Color hex codes, short strings, invalid base58, non-address identifiers
+Color: #de0B29 (too short for ETH)
+CSS color #742d35Cc
+HTML hex 0xABCDEF (only 6 chars, not 40)
+IPv6 address 0x1234:5678:9abc:def0
+ISBN 978-3-16-148410-0
+Barcode 1234567890128
+Base64 encoded data QW5vdGhlclRlc3Q=
+Order ID 1A2B3C4D5E6F (too short)
+Product code 3QJmV3qf (8 chars only)
+Git commit hash 1LoVGDgRs9hTfTNJNu (too short)
+Serial 0xDEADBEEF (8 chars only)
+MAC 0x00:1A:2B:3C:4D:5E
+Hex dump 0x7f000001 (IP in hex)
+Register value 0xFFFFFFFFFFFFFFFF (16 chars not 40)
+Device ID bc1q123 (too short)
+Short code 3Abc (too short)
+Color value #1A1zP1 (mixed chars, too short)
+Reference 1BvBMSEY (8 chars)
+Test ID 3J98t1W (7 chars)
+Tracking bc1q (way too short)

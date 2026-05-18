@@ -1,0 +1,27 @@
+{
+  "id": "preset.residency.pt",
+  "version": 1,
+  "titleI18nKey": "preset_residency_pt_title",
+  "descriptionI18nKey": "preset_residency_pt_desc",
+  "locale": "pt",
+  "shipTier": "ga",
+  "sourceNote": "Portugal PII · Portugal Financial Data",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": false },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

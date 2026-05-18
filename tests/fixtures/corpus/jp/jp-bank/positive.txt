@@ -1,0 +1,25 @@
+Please wire to: bank code 0001 branch code 021 account number 1234567 (Bank of Japan).
+Japan wire instructions: bank code 0009 branch code 001 account 2938475 — Mizuho Bank.
+Payment details: bank code 0010 branch code 888 account no. 3847291 — Shizuoka Bank.
+Transfer to Japanese account: bank code 0030 branch code 123 account 9182736.
+Vendor payment Japan: bank code 0036 branch code 042 account number 1928374.
+Wire JPY: bank code 0116 branch code 260 account 8273645 — Hokkaido Bank.
+Japan bank transfer: bank code 0138 branch code 001 account 6473829 — Mie Bank.
+Zengin EFT: bank code 0145 branch code 030 account number 5839201.
+Bank code 0150 branch code 100 account 4728391 — Iyo Bank, Matsuyama.
+Please send JPY wire to bank code 0167 branch code 010 account 3829104.
+Japan supplier payment: bank code 0289 branch code 001 account 2938475.
+Ordinary account: bank code 0310 branch code 003 account no. 1023948.
+Bank code 0001 branch code 202 account number 8471920 — yen transfer.
+Zengin: bank code 0009 branch code 999 account 9182736 — Mizuho Trust.
+Japan remittance: bank code 0010, branch code: 205, account: 7362918.
+Payment to branch code 005 of bank code 0036, account number 6172839.
+Wire details (JPY): bank code 0116 branch 027 account 9281937.
+Payee Japan: bank code: 0138 branch code: 011 account number: 3748291.
+Transfer bank code 0145 branch code 108 account 8473920 today.
+Correspondent bank Japan: bank code 0150 branch 023 account 7382910.
+Japan EFT details: bank code 0289 branch 042 account no. 1029384.
+Futsuu (ordinary) account: bank code 0001 branch 777 account 3847291.
+Bank code 0167 branch code 001 account number 2938475 — direct wire.
+Japan vendor: bank code 0310 branch code 301 account 1827364 remit today.
+Send payment to Japan: bank code 0036 branch code 200 account 9374829.

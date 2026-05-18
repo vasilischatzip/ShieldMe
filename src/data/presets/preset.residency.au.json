@@ -1,0 +1,28 @@
+{
+  "id": "preset.residency.au",
+  "version": 1,
+  "titleI18nKey": "preset_residency_au_title",
+  "descriptionI18nKey": "preset_residency_au_desc",
+  "locale": "au",
+  "shipTier": "ga",
+  "sourceNote": "Australia Financial Data · Australia PII · Australia Privacy Act",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

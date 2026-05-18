@@ -1,0 +1,27 @@
+# health-id positive corpus — each line should trigger the detector
+# Health insurance member IDs with contextual keywords
+Member ID: UHC12345678 — Blue Cross health insurance card
+subscriber id: A123456789 health plan member card
+Health plan member number: BC987654321 active coverage
+My insurance member ID is UHC00112233 for the appointment
+Group number 45678 member ID XYZ9876543 health coverage
+Insurance card shows member ID: HM234567890 Blue Shield
+Policy member id A987654321 in the Blue Cross network
+United Healthcare member id UHC11223344 renewal
+Cigna subscriber ID: CG44556677 health benefits card
+Aetna health insurance member number: AE112233445
+Member identification: M12345678 health insurance plan
+Health plan subscriber number BC778899001 effective Jan
+My health insurance ID is HI99887766 please verify
+Member id: BCBS445566778 for the Blue Cross Blue Shield plan
+Insurance policy member identification: UHC55443322 valid
+Subscriber identifier A445566778 — employee health benefits
+Group member id 77889900 health plan coverage active
+Health card member number: HM334455667 clinic visit
+Blue Shield member id BS778899001 — in-network provider
+Medical insurance subscriber id ME112233445 copay waived
+Provider lookup by member id: CI998877665 Cigna network
+Humana health plan member ID: HU556677889 2024 benefits
+Kaiser member id: KP112233445 — HMO coverage active
+Anthem member identification number: AN998877665 renewal
+Health insurance card member id: MVS112233 — valid coverage

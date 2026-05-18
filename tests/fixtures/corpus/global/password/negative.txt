@@ -1,0 +1,22 @@
+# Password negative corpus — should NOT trigger
+password=your_password (placeholder)
+password=<YOUR_PASSWORD> (template placeholder)
+password=changeme (common placeholder)
+password=example (placeholder)
+password=placeholder
+password=null
+password=undefined
+password=none
+password=xxx (too short)
+password=abc (too short, 3 chars)
+password=12345 (too short, 5 chars)
+# Example: password=secrethere
+// password: YOUR_SECRET_HERE
+The password field is required
+Enter your password below
+password reset link sent
+password strength: strong
+password must be 8+ characters
+forgotten password recovery
+password policy requires uppercase
+password complexity rules enforce 12+ characters minimum

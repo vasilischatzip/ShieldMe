@@ -1,0 +1,57 @@
+{
+  "name": "shieldme",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Client-side privacy audit web app \u2014 know what's exposed before you share it.",
+  "packageManager": "pnpm@9.15.9",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . && pnpm lint:copy",
+    "lint:copy": "node scripts/lint-copy.mjs",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "playwright test",
+    "test:corpus": "node tests/corpus/runner.mjs",
+    "verify": "pnpm typecheck && pnpm lint && pnpm test && pnpm build && node scripts/check-bundle-budget.mjs && node scripts/check-egress-allowlist.mjs && node scripts/verify-csp.mjs && node scripts/verify-presets.mjs",
+    "format": "prettier --write ."
+  },
+  "dependencies": {
+    "@noble/ed25519": "^2.1.0",
+    "@noble/hashes": "^1.5.0",
+    "@preact/signals": "^2.0.4",
+    "idb": "^8.0.0",
+    "jspdf": "^4.2.1",
+    "mammoth": "^1.12.0",
+    "pdfjs-dist": "^5.7.284",
+    "preact": "^10.25.4",
+    "preact-iso": "^2.6.0",
+    "tesseract.js": "^7.0.0",
+    "valibot": "^1.0.0-rc.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@playwright/test": "^1.50.1",
+    "@preact/preset-vite": "^2.9.4",
+    "@types/node": "^22.15.3",
+    "@types/trusted-types": "^2.0.7",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "@vitest/coverage-v8": "^4.1.5",
+    "axe-core": "^4.11.4",
+    "eslint": "^9.26.0",
+    "fake-indexeddb": "^6.0.0",
+    "jsdom": "^29.0.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.4",
+    "vitest": "^4.1.5"
+  }
+}

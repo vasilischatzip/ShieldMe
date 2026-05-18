@@ -1,0 +1,22 @@
+# minor-name negative corpus — should NOT trigger
+# Adult names, company names, or names without age/child context
+John Smith senior executive director
+Sarah Johnson CEO of the company
+Michael Brown manager at headquarters
+The company president Emma Davis announced
+Director Oliver Wilson attended the board meeting
+Senior manager Isabella Thompson leads the team
+Adult Noah Anderson age 35 executive
+Organization president Charlotte Davis
+Company director Liam Martinez
+Senior executive Ava Thompson age 42
+Emma Davis president of the organization
+Oliver Brown adult manager position
+Company name: Johnson & Associates
+Organization: Smith Foundation director
+Michael adult 28 years old employee
+Sarah senior manager corporation
+James director age 45 company board
+Charlotte executive officer adult role
+Benjamin senior adult 30 years position
+Grace adult manager company director

@@ -1,0 +1,21 @@
+# Passport positive corpus
+P<GBRSURNAME<<GIVENNAME<<<<<<<<<<<<<<<<<<<<
+Passport number: A12345678 nationality: USA
+Travel document: B87654321 expires 2029
+Passport: C01X00T47 Germany
+P<USASURNAME<<GIVEN<NAMES<<<<<<<<<<<<<<<<<<
+P<FRASURNAME<<PRENOM<<<<<<<<<<<<<<<<<<<<<<
+Document number P123456789 passport
+Passport no. AB1234567 issued 2020
+Visa application passport B12345678
+P<GBRMUSTER<<MAX<<<<<<<<<<<<<<<<<<<<<<<<<<<
+Passport number A98765432 date of birth 1990
+Travel document number: D12345678
+Passport issued: F12345678 expiry 2030
+P<DEUSMITH<<JOHN<<<<<<<<<<<<<<<<<<<<<<<<<
+Nationality document G87654321 passport
+Passport no: H12345678 renewed
+Identity document I12345678 passport type P
+International passport J12345678 holder
+P<ITAROSSI<<MARIO<<<<<<<<<<<<<<<<<<<<<<<<
+Passport number: K23456789 valid until 2027

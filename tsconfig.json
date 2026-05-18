@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "outDir": "dist",
+    "rootDir": ".",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
+    "types": ["node", "vite/client", "trusted-types"]
+  },
+  "include": ["src/**/*", "scripts/**/*", "tests/**/*"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "src/manifest.ts",
+    "src/background",
+    "src/content",
+    "src/offscreen",
+    "src/security/kill-switch.ts",
+    "src/security/kill-switch-keys.ts",
+    "tests/unit/content",
+    "tests/unit/security/kill-switch.spec.ts",
+    "tests/unit/offscreen",
+    "tests/e2e/onboarding.spec.ts",
+    "tests/e2e/onboarding-5click.spec.ts"
+  ]
+}

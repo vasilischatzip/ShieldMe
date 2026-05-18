@@ -1,0 +1,21 @@
+# National ID negative corpus
+Order number 123456789 (valid AFM-like but no context)
+Invoice 100000002 ref
+Zip code 12345
+Phone 0123456789 (10 digits not 9)
+Product 12345678A (8 digits + letter, not NIF format)
+Random 99999999X fails NIF check
+Model code AB99999Z invalid NINO prefix
+Serial BG123456A (invalid NINO prefix)
+Lot 1234567890123456 (too long)
+SKU 12345678 (8 digits, too short)
+Reference ABCDEF (too short)
+Tracking 123 (way too short)
+Item RSSMRA85T10A562T (wrong check char, CF invalid)
+ISBN 978-3-16-148410-0
+Postal code 90210
+IP address 192168001001 (12 digits)
+Date 20240115 (8 digits, too short)
+Year 2024 month 01
+Time 123456 (6 digits only)
+Barcode 1234567890128 (fails AFM/NIF/TFN checks)

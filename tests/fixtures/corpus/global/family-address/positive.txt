@@ -1,0 +1,22 @@
+# family-address positive corpus — each line should trigger the detector
+# Home address near family/child keyword
+My home address is 123 Main Street and my children go to school nearby
+We live at 456 Oak Avenue Apt 3B with our kids
+My family home is 789 Elm Street — my son walks to school from there
+Home: 234 Maple Drive and my daughter catches the bus here
+Our family lives at 567 Pine Road where my children play
+I live with my kids at 890 Cedar Lane — home address for records
+My children's home address is 123 Birch Court neighborhood
+Family residence at 456 Willow Way — my son attends school nearby
+We reside at 789 Spruce Avenue with my daughter and son
+Home address for my children: 234 Poplar Street district
+My family home: 567 Chestnut Road — kids enrolled at local school
+Residence: 890 Walnut Drive where my children live with me
+Our home at 123 Hickory Lane — my daughter's school bus stop nearby
+Family home address 456 Ash Street — two kids in elementary school
+My son's home is 789 Magnolia Court — our residence for enrollment
+Children reside at 234 Sycamore Place with family home
+Home at 567 Mulberry Lane — my kids play in the yard here
+Family address: 890 Dogwood Drive where my daughter lives
+My children's residence: 123 Redbud Court family home
+We live at 456 Sweetgum Avenue — home for my kids school records

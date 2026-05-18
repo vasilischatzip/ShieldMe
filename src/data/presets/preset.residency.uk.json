@@ -1,0 +1,29 @@
+{
+  "id": "preset.residency.uk",
+  "version": 1,
+  "titleI18nKey": "preset_residency_uk_title",
+  "descriptionI18nKey": "preset_residency_uk_desc",
+  "locale": "uk",
+  "shipTier": "ga",
+  "sourceNote": "United Kingdom Data Protection Act · UK PII · UK Financial Data",
+  "categories": {
+    "myMoney":       { "enabled": true },
+    "myIdentity":    { "enabled": true },
+    "myDigitalLife": { "enabled": true },
+    "myHealth":      { "enabled": true },
+    "myFamily":      { "enabled": false },
+    "myLocation":    { "enabled": false }
+  },
+  "detectors": {
+    "credit-card":     true,
+    "iban":            true,
+    "ssn":             true,
+    "passport":        true,
+    "drivers-license": true,
+    "national-id":     true,
+    "health-id":       true,
+    "api-key":         true,
+    "private-key":     true,
+    "password":        true
+  }
+}

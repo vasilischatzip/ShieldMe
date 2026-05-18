@@ -1,0 +1,21 @@
+# Driver's license positive corpus
+Driver license number: A1234567 issued by DMV
+Driving licence: AB12345678 California DMV
+DL# B9876543 operator license
+Driver's license C1234567 motor vehicle
+DMV license number: D12345678 issued
+License plate linked to DL: E9876543
+Driving license number AB1234567 renewal
+Driver license F12345678 expires 2026
+DL number: G1234567 state license
+Operator license H9876543 commercial
+Driving licence number I1234567 UK DVLA
+License A1234567 driver DMV renewal
+Motor vehicle license J12345678 operator
+Driver license: K9876543 renewal due
+DL: L1234567 driving record
+DMV issued M12345678 driver license
+Driving license N9876543 state motor
+Driver license number O1234567 issued
+DL# P12345678 driving operator
+License Q9876543 driver motor vehicle

@@ -1,0 +1,21 @@
+# Driver's license negative corpus
+Order reference A1234567 (no license keyword)
+Invoice B9876543 for product
+Tracking number C1234567890 (too long)
+Serial number D12345 (too short)
+Product SKU E9876543 warehouse
+Barcode F1234567890128 (too long)
+Model number G12345678 device
+Reference code H9876543 support
+Asset ID I1234567 equipment
+Configuration J12345678 server
+Part number K9876543 component
+Item code L1234567 catalog
+Lot number M12345678 batch
+Version N9876543 software
+Build O1234567 release
+Customer ID P12345678 account
+Member number Q9876543 loyalty
+Employee ID R1234567 personnel
+Contract S12345678 agreement
+Ticket T9876543 support
