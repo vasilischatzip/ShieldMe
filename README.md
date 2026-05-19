@@ -21,7 +21,7 @@ This is a portfolio project I built end-to-end: detection engine, design system,
 
 Six modules, all client-side:
 
-1. **My Protection Rules** — categories (Money, Identity, Health, Family, Digital Life, Location) with 200+ detectors derived from Microsoft Purview's Sensitive Information Types, calibrated for consumer use.
+1. **My Protection Rules** — six categories (Money, Identity, Health, Family, Digital Life, Location) with 100+ region-aware detectors derived from Microsoft Purview's Sensitive Information Types and calibrated for consumer use. 23 shipped presets covering EU/US/UK residencies and life/work profiles (parent, traveler, developer, healthcare, payments).
 2. **Document Check** — drag a PDF / DOCX / XLSX / CSV / TXT / RTF, see findings with page numbers and an exposure score.
 3. **Email Scanner** — paste an email or upload an `.eml`. Phishing heuristics on inbound mail (link mismatch, homoglyph, attachment masquerade).
 4. **Cloud Audit** — connect Google Drive via OAuth (PKCE, read-only by default), cross-reference file permissions with content findings, surface "public file with your IBAN inside" as Critical.
@@ -65,16 +65,18 @@ The repository is spec-driven. Everything is documented before it's built:
 ```bash
 pnpm install
 pnpm dev               # http://localhost:5173
-pnpm verify            # typecheck + lint + 1300+ unit tests + build + gates
+pnpm verify            # typecheck + lint + unit tests + build + bundle/egress/CSP/preset gates
 ```
+
+Node 20+, pnpm 9 (the `packageManager` field in `package.json` pins the exact version — Corepack will use it).
 
 ## Tech notes worth highlighting
 
-- **1300+ unit tests** for detectors, validators, scan engine, parsers, presets, crypto, storage, and identity flow.
-- **Detector corpus:** every detector has paired positive + negative test fixtures with a CI gate at FPR ≤2% and recall ≥95%.
-- **Egress allowlist** is derived from a contract markdown table at build time — adding a host requires editing one file.
-- **Consumer-language linter** — UI strings can't contain `DLP`, `regex`, `PII`, `classifier`, `entropy`, regulation names. Marketing-grade copy in the code.
-- **MOTA-inspired** color palette and **Manrope + Inter** (both SIL-OFL) typography.
+- **~1000 unit-test cases / ~1600 assertions** across detectors, validators, scan engine, parsers, presets, crypto, storage, and identity flow.
+- **Detector corpus** with paired positive + negative fixtures and a CI gate on false-positive rate and recall (thresholds in `specs/001-shieldme-mvp/plan.md`).
+- **Egress allowlist** is generated from a contract markdown table at build time — adding a host requires editing one file and passes through the same review as any other contract change.
+- **Consumer-language linter** — UI strings can't contain `DLP`, `regex`, `PII`, `classifier`, `entropy`, or regulation names. Plain-English copy is enforced by the linter, not by convention.
+- **MOTA-inspired** color palette, **Manrope + Inter** (both SIL-OFL) typography, EN + EL locales.
 
 ## License
 

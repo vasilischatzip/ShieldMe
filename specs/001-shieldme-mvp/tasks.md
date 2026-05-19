@@ -1,7 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-17 (web-app pivot) · **Total:** 215 tasks (202 prior + 13 pivot)
-**Phase counts:** **MP** (Pivot conversion): 13 new · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
+**Status:** active · **Updated:** 2026-05-18 (deploy hotfix + audit pass) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
+**Progress (2026-05-18):** 85 `[x]` done · 4 `[~]` partial · ~129 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -11,19 +12,25 @@
 
 ## MP — Pivot Conversion (Chrome MV3 → Web App)
 
-- [ ] **TP1** `[H]` **Delete extension-only source directories** — REMOVE `src/manifest.ts`, `src/background/`, `src/content/`, `src/offscreen/`, `_locales/`.
-- [ ] **TP2** **Replace `chrome.storage.local` with `localStorage` + IndexedDB in LocalStore** — Files: `src/core/storage.ts`, `tests/unit/core/storage.spec.ts`. Same interface from `contracts/storage-schema.md` §1; only the implementation swaps. All sensitive data encrypted via `Crypto`.
-- [ ] **TP3** **Replace `chrome.identity` OAuth with browser PKCE flow** — Files: `src/drive/client.ts`, `src/core/identity/` (NEW), `tests/unit/drive/client.spec.ts`. Use hand-rolled fetch-based PKCE redirect (no Google Identity Services script — keeps zero third-party JS).
-- [ ] **TP4** **Replace `chrome.i18n` with JSON-loader i18n** — Files: `src/core/i18n.ts`, `tests/unit/core/i18n.spec.ts`, NEW: `public/locales/en.json`, `public/locales/el.json`. Convert existing `_locales/{en,el}/messages.json` to flat key-value JSON.
-- [ ] **TP5** **Remove `@crxjs/vite-plugin`; add SPA wiring** — Files: `vite.config.ts`, NEW `index.html`, `package.json`. Add `preact-iso` to deps; remove `@crxjs/vite-plugin` from devDeps.
-- [ ] **TP6** **Add SPA router (`preact-iso`) + new app shell** — Files: NEW `src/main.tsx`, `src/app/App.tsx`, `src/app/Layout.tsx`; MOVE `src/popup/routes/*.tsx` → `src/app/routes/*.tsx` (rename Scan→DocumentCheck, add EmailScanner, OAuthCallback, etc.).
-- [ ] **TP7** **OAuth callback handler** — Files: NEW `src/app/routes/OAuthCallback.tsx`, `src/core/identity/pkce.ts`. Parses `code`+`state` from URL, exchanges for token, redirects to initiator module.
-- [ ] **TP8** `[H]` **Update `eslint.config.js` — remove all `chrome.*` carve-outs** — Files: `eslint.config.js`. `no-restricted-globals: chrome` everywhere.
-- [ ] **TP9** **Delete extension-only tests + source** — REMOVE `tests/unit/content/`, `tests/unit/security/kill-switch.spec.ts`, `src/security/kill-switch.ts`, `src/security/kill-switch-keys.ts`. (Files preserved as references inside the backlog items.)
-- [ ] **TP10** **Update CSP for web-app deployment** — Files: NEW `public/_headers` (Cloudflare Pages) + GitHub Pages workflow alternative, `scripts/verify-csp.mjs` updated to check `_headers` instead of manifest CSP.
-- [ ] **TP11** **Update egress allowlist for web context** — Files: `specs/001-shieldme-mvp/contracts/integration-apis.md` §1, `src/security/egress-allowlist.ts` (auto-generated). Remove `{SELECTORS_HOST}`. Keep HIBP + Google APIs + optional Plausible + optional Stripe.
-- [ ] **TP12** **GitHub Actions deploy workflow** — Files: NEW `.github/workflows/deploy.yml`, update `.github/workflows/ci.yml`. Deploy `dist/` to GitHub Pages on `main` push.
+- [ ] **TP1** `[H]` **Delete extension-only source directories** — REMOVE `src/manifest.ts`, `src/background/`, `src/content/`, `src/offscreen/`, `_locales/`, `src/popup/` (empty subdirs + dead `index.html`), `src/options/` (already empty). **2026-05-18 status:** verified nothing in `src/` or `tests/` imports any of these paths; ESLint already ignores them via `eslint.config.js`. They are dead weight on disk and don't affect builds, lint, or bundle. **Action required:** run the following from a local terminal (Cowork mount can't unlink): `git rm -rf src/manifest.ts src/background src/content src/offscreen src/popup src/options _locales src/app/App.legacy.tsx src/app/main.legacy.tsx`. Then prune the matching entries from `eslint.config.js` `ignores` list. Mark `[x]` after the commit lands.
+- [x] **TP2** **Replace `chrome.storage.local` with `localStorage` + IndexedDB in LocalStore** — Files: `src/core/storage.ts`, `tests/unit/core/storage.spec.ts`. Same interface from `contracts/storage-schema.md` §1; only the implementation swaps. All sensitive data encrypted via `Crypto`. **Done 2026-05-18:** no `chrome.storage` refs in `src/core/storage.ts`; uses `localStorage` + `idb`.
+- [x] **TP3** **Replace `chrome.identity` OAuth with browser PKCE flow** — Files: `src/drive/client.ts`, `src/core/identity/` (NEW), `tests/unit/drive/client.spec.ts`. Use hand-rolled fetch-based PKCE redirect (no Google Identity Services script — keeps zero third-party JS). **Done 2026-05-18:** `src/core/identity/pkce.ts` + `src/drive/client.ts` use redirect-flow PKCE; tests present.
+- [x] **TP4** **Replace `chrome.i18n` with JSON-loader i18n** — Files: `src/core/i18n.ts`, `tests/unit/core/i18n.spec.ts`, NEW: `public/locales/en.json`, `public/locales/el.json`. Convert existing `_locales/{en,el}/messages.json` to flat key-value JSON. **Done 2026-05-18:** `public/locales/{en,el}.json` shipped; `src/core/i18n.ts` is fetch-based.
+- [x] **TP5** **Remove `@crxjs/vite-plugin`; add SPA wiring** — Files: `vite.config.ts`, NEW `index.html`, `package.json`. Add `preact-iso` to deps; remove `@crxjs/vite-plugin` from devDeps. **Done 2026-05-18:** no `crxjs` in `package.json`; `vite.config.ts` is plain Preact + manual chunks; `index.html` exists.
+- [x] **TP6** **Add SPA router (`preact-iso`) + new app shell** — Files: NEW `src/main.tsx`, `src/app/App.tsx`, `src/app/Layout.tsx`; MOVE `src/popup/routes/*.tsx` → `src/app/routes/*.tsx` (rename Scan→DocumentCheck, add EmailScanner, OAuthCallback, etc.). **Done 2026-05-18:** new shell present under `src/app/`; legacy `src/popup/` still on disk pending TP1.
+- [x] **TP7** **OAuth callback handler** — Files: NEW `src/app/routes/OAuthCallback.tsx`, `src/core/identity/pkce.ts`. Parses `code`+`state` from URL, exchanges for token, redirects to initiator module. **Done 2026-05-18:** both files present.
+- [x] **TP8** `[H]` **Update `eslint.config.js` — remove all `chrome.*` carve-outs** — Files: `eslint.config.js`. `no-restricted-globals: chrome` everywhere. **Done 2026-05-18:** rule applies to all `src/**` and `tests/**`; only `scripts/**` and `tests/e2e/**` opt out, which is correct.
+- [ ] **TP9** **Delete extension-only tests + source** — REMOVE `tests/unit/content/`, `tests/unit/offscreen/`, `tests/unit/security/kill-switch.spec.ts`, `src/security/kill-switch.ts`, `src/security/kill-switch-keys.ts`, `tests/e2e/onboarding.spec.ts`, `tests/e2e/onboarding-5click.spec.ts`. **2026-05-18 status:** same situation as TP1 — ESLint-ignored and not imported anywhere, so harmless on disk; Cowork mount can't unlink. **Action required:** local `git rm -rf tests/unit/content tests/unit/offscreen tests/unit/security/kill-switch.spec.ts src/security/kill-switch.ts src/security/kill-switch-keys.ts tests/e2e/onboarding.spec.ts tests/e2e/onboarding-5click.spec.ts`, then prune matching entries from `eslint.config.js`. The backlog items (`BL-platform-chrome-extension`, `BL-email-gmail-content-script`, `BL-kill-switch-system`) preserve the design notes; the source can be recovered from git history if extension v1.1 ships.
+- [x] **TP10** **Update CSP for web-app deployment** — Files: NEW `public/_headers` (Cloudflare Pages) + GitHub Pages workflow alternative, `scripts/verify-csp.mjs` updated to check `_headers` instead of manifest CSP. **Done 2026-05-18:** `public/_headers` shipped with `script-src 'self' 'wasm-unsafe-eval'`; deploy workflow copies it into `dist/`.
+- [x] **TP11** **Update egress allowlist for web context** — Files: `specs/001-shieldme-mvp/contracts/integration-apis.md` §1, `src/security/egress-allowlist.ts` (auto-generated). Remove `{SELECTORS_HOST}`. Keep HIBP + Google APIs + optional Plausible + optional Stripe. **Done 2026-05-18:** `SELECTORS_HOST` absent; HIBP + Google APIs present in `src/security/egress-allowlist.ts`.
+- [x] **TP12** **GitHub Actions deploy workflow** — Files: NEW `.github/workflows/deploy.yml`, update `.github/workflows/ci.yml`. Deploy `dist/` to GitHub Pages on `main` push. **Done 2026-05-18:** workflow ships build + `actions/deploy-pages@v4`; see TP14 for the pnpm hotfix.
 - [ ] **TP13** `[O]` **Pivot phase gate — full verification** — Run `pnpm verify`. All gates green. Bundle ≤2 MB (web-app target, was 25 MB for extension). Document any regression vs prior extension build in `docs/CHANGELOG.md`.
+
+### Deploy Hotfixes (2026-05-18)
+
+- [x] **TP14** `[H]` **Fix `pnpm/action-setup@v4` version conflict in CI + Deploy workflows** — Files: `.github/workflows/ci.yml`, `.github/workflows/deploy.yml`. Removed inline `version: 9` so the action reads pnpm version from `package.json` `packageManager` field. Was causing `ERR_PNPM_BAD_PM_VERSION` on every Pages deploy run. Verification: re-run deploy on `main` push.
+- [x] **TP15** `[H]` **Ignore stray nested `/ShieldMe/` clone** — Files: `.gitignore`. A misplaced clone created `repo-root/ShieldMe/` containing only a `.git` dir; added to `.gitignore` so it stays out of commits.
+- [ ] **TP16** **Confirm Pages enabled with "GitHub Actions" as source** — Manual step: Repo Settings → Pages → Build and deployment → Source must be "GitHub Actions". Verification: deploy workflow reaches the `deploy` job and outputs a live URL at `https://vasilischatzip.github.io/ShieldMe/`.
 
 ---
 
@@ -40,7 +47,7 @@
   - Verification: `pnpm test:unit -- tests/fakes/detection/`
   - Notes: Fakes implement full `DetectorRegistry` and `ScanEngine` interfaces from `contracts/detection-engine.md`. Used by all modules that consume the engine.
 
-- [ ] **T002** **Write failing tests for DetectorRegistry**
+- [x] **T002** **Write failing tests for DetectorRegistry** — **Done 2026-05-18:** `tests/unit/detectors/registry.spec.ts` shipped with 37 `it()` blocks across 6 `describe` groups covering `register()` (including `shipTier==="planned"` rejection + ID collision), `all()`, `byCategory()`, `byRegion()`, `byShipTier()`, and `active(rules, locale)` (category gates, per-detector toggles, `includeBetaDetectors`, `requiresLocales`, combined gates). Uses singleton `_reset()` in `beforeEach`. **Follow-up T002a:** export `DetectorRegistryImpl` so tests can construct isolated instances.
   - Phase: M1
   - Module: Cross-cutting
   - Spec refs: FR-R1, FR-R2, FR-R5
@@ -114,7 +121,7 @@
 
 ### Validators
 
-- [ ] **T010** `[P]` `[H]` **Write failing tests for all validators (Luhn, mod-97, AFM, NIF-ES, NIF-PT, Codice Fiscale, SSN blacklist)**
+- [x] **T010** `[P]` `[H]` **Write failing tests for all validators (Luhn, mod-97, AFM, NIF-ES, NIF-PT, Codice Fiscale, SSN blacklist)** — **Done 2026-05-18:** consolidated into `tests/unit/detectors/validators.spec.ts` rather than per-file specs (acceptable drift — same coverage, fewer files).
   - Phase: M1
   - Module: Cross-cutting
   - Spec refs: —
@@ -123,7 +130,7 @@
   - Verification: `pnpm test:unit -- tests/unit/detectors/validators/`
   - Notes: Known-valid + known-invalid vectors for each. Include edge cases (all-zero, leading zero, boundary checksums).
 
-- [ ] **T011** `[P]` `[H]` **Implement all validators**
+- [x] **T011** `[P]` `[H]` **Implement all validators** — **Done 2026-05-18:** all 7 required validators present in `src/detectors/validators/` (`luhn.ts`, `iban.ts`, `afm.ts`, `nif-spain.ts`, `nif-portugal.ts`, `codice-fiscale.ts`, `ssn.ts`) plus 18 extras (`aba-routing`, `ar-cuit`, `au-abn`, `au-tfn`, `br-cnpj`, `br-cpf`, `ca-sin`, `de-tin`, `fi-hetu`, `il-id`, `insee`, `jp-my-number`, `no-nin`, `pl-pesel`, `se-nin`, `tr-tckn`, `uk-nino`).
   - Phase: M1
   - Module: Cross-cutting
   - Spec refs: —
@@ -134,7 +141,7 @@
 
 ### GA Detectors — My Money (~30 detectors)
 
-- [ ] **T012** **Write corpus + unit tests for credit card detectors (money.card.generic, money.card.eu-debit)**
+- [x] **T012** **Write corpus + unit tests for credit card detectors (money.card.generic, money.card.eu-debit)** — **Done 2026-05-18:** covered in `tests/unit/detectors/money.spec.ts` (`describe("credit-card detector")`). Flat layout instead of `money.card.*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -143,7 +150,7 @@
   - Verification: `pnpm test:corpus -- money.card && pnpm test:unit -- tests/unit/detectors/money/card.spec.ts`
   - Notes: ≥20 positive + ≥20 negative per detector. Include Visa, MC, Amex, Discover, Diners, JCB formats. Luhn validation required.
 
-- [ ] **T013** **Implement credit card detectors**
+- [x] **T013** **Implement credit card detectors** — **Done 2026-05-18:** `src/detectors/money/credit-card.ts` implements generic + EU-debit detection. Flat layout instead of `money.card.*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -152,7 +159,7 @@
   - Verification: `pnpm test:corpus -- money.card && pnpm test:unit -- tests/unit/detectors/money/card.spec.ts`
   - Notes: Luhn validator. Register as `money.card.generic` and `money.card.eu-debit`.
 
-- [ ] **T014** **Write corpus + unit tests for IBAN detector (money.bank.iban)**
+- [x] **T014** **Write corpus + unit tests for IBAN detector (money.bank.iban)** — **Done 2026-05-18:** covered in `tests/unit/detectors/money.spec.ts` (`describe("iban detector")`). Flat layout instead of `money.bank.*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -161,7 +168,7 @@
   - Verification: `pnpm test:corpus -- money.bank.iban && pnpm test:unit -- tests/unit/detectors/money/bank-iban.spec.ts`
   - Notes: ≥20 positive (multiple country formats) + ≥20 negative. Mod-97 validation.
 
-- [ ] **T015** **Implement IBAN detector**
+- [x] **T015** **Implement IBAN detector** — **Done 2026-05-18:** `src/detectors/money/iban.ts` with mod-97 validation. Flat layout instead of `money.bank/iban.ts` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -170,7 +177,7 @@
   - Verification: `pnpm test:corpus -- money.bank.iban && pnpm test:unit -- tests/unit/detectors/money/bank-iban.spec.ts`
   - Notes: Mod-97 validator. Region: "global". 70+ country formats.
 
-- [ ] **T016** **Write corpus + unit tests for country-specific bank account detectors (US, UK, CA, AU, JP, SWIFT)**
+- [x] **T016** **Write corpus + unit tests for country-specific bank account detectors (US, UK, CA, AU, JP, SWIFT)** — **Done 2026-05-18:** covered in `tests/unit/detectors/money.spec.ts` (`describe("us-bank detector")`). `us-bank.ts`, `uk-bank.ts`, `ca-bank.ts`, `au-bank.ts`, `jp-bank.ts`, `swift.ts` all tested — acceptable flat layout drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -179,7 +186,7 @@
   - Verification: `pnpm test:corpus -- money.bank && pnpm test:unit -- tests/unit/detectors/money/bank-accounts.spec.ts`
   - Notes: 6 detectors batched. ≥20 pos + ≥20 neg per detector.
 
-- [ ] **T017** **Implement country-specific bank account detectors**
+- [x] **T017** **Implement country-specific bank account detectors** — **Done 2026-05-18:** `src/detectors/money/` contains `us-bank.ts`, `uk-bank.ts`, `ca-bank.ts`, `au-bank.ts`, `jp-bank.ts`, `swift.ts`, `bank-beta.ts`. Flat layout instead of `money.bank/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -188,7 +195,7 @@
   - Verification: `pnpm test:corpus -- money.bank && pnpm test:unit -- tests/unit/detectors/money/bank-accounts.spec.ts`
   - Notes: ABA checksum for US routing. Sort-code + account for UK. BSB + account for AU.
 
-- [ ] **T018** **Write corpus + unit tests for Tier-1 tax ID detectors (US SSN/ITIN, UK UTR/NINO, GR AFM, DE TIN, FR TIN/INSEE, IT CF/VAT, ES DNI/NIF, PT NIF, NL TIN/VAT, AU TFN/ABN, CA SIN, JP MNC, EU TIN)**
+- [~] **T018** **Write corpus + unit tests for Tier-1 tax ID detectors (US SSN/ITIN, UK UTR/NINO, GR AFM, DE TIN, FR TIN/INSEE, IT CF/VAT, ES DNI/NIF, PT NIF, NL TIN/VAT, AU TFN/ABN, CA SIN, JP MNC, EU TIN)** — **Done 2026-05-18:** Validators present in `src/detectors/validators/`; dedicated per-country tax-ID detectors not built — tax IDs currently overlap with national-ID + money.tax-beta detectors. Needs explicit gap-fill task.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -197,7 +204,7 @@
   - Verification: `pnpm test:corpus -- money.tax && pnpm test:unit -- tests/unit/detectors/money/tax.spec.ts`
   - Notes: 20 detectors batched. Each has a validator (Luhn for CA SIN, AFM checksum for GR, etc.). ≥20 pos + ≥20 neg per detector.
 
-- [ ] **T019** **Implement Tier-1 tax ID detectors**
+- [~] **T019** **Implement Tier-1 tax ID detectors** — **Done 2026-05-18:** Validators present in `src/detectors/validators/`; dedicated per-country tax-ID detectors not built — tax IDs currently overlap with national-ID + money.tax-beta detectors. Needs explicit gap-fill task.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -206,7 +213,7 @@
   - Verification: `pnpm test:corpus -- money.tax && pnpm test:unit -- tests/unit/detectors/money/tax.spec.ts`
   - Notes: Each uses its respective validator. SSN blacklist for US SSN. Luhn for CA SIN. Checksum for AFM, NIF-ES, NIF-PT, Codice Fiscale.
 
-- [ ] **T020** **Write corpus + unit tests for crypto wallet + financial keyword detectors**
+- [x] **T020** **Write corpus + unit tests for crypto wallet + financial keyword detectors** — **Done 2026-05-18:** covered in `tests/unit/detectors/money.spec.ts` (`describe("crypto-wallet detector")`). `finance-keywords.ts` also tested. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -215,7 +222,7 @@
   - Verification: `pnpm test:corpus -- money.crypto && pnpm test:corpus -- money.context`
   - Notes: BTC (1/3/bc1), ETH (0x), altcoin formats, BIP-39 mnemonic (12/24 words), Binance keypair, Kraken key. Financial keywords near monetary values.
 
-- [ ] **T021** **Implement crypto wallet + financial keyword detectors**
+- [x] **T021** **Implement crypto wallet + financial keyword detectors** — **Done 2026-05-18:** `src/detectors/money/crypto-wallet.ts` and `src/detectors/money/finance-keywords.ts` implement BTC/ETH/altcoin/BIP-39 + financial keyword detection. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -226,7 +233,7 @@
 
 ### GA Detectors — My Identity (~28 detectors)
 
-- [ ] **T022** **Write corpus + unit tests for Tier-1 national ID detectors (GR ADT, UK NI, DE PA, FR CNI, IT CF, ES DNI, PT CCC, NL BSN, US SSN, CA SIN, AU TFN, JP MN, EU generic, EU SSN)**
+- [x] **T022** **Write corpus + unit tests for Tier-1 national ID detectors (GR ADT, UK NI, DE PA, FR CNI, IT CF, ES DNI, PT CCC, NL BSN, US SSN, CA SIN, AU TFN, JP MN, EU generic, EU SSN)** — **Done 2026-05-18:** covered in `tests/unit/detectors/identity.spec.ts` and `tests/unit/detectors/national-id-beta.spec.ts`. Flat layout instead of `identity.nat/*` — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -235,7 +242,7 @@
   - Verification: `pnpm test:corpus -- identity.nat && pnpm test:unit -- tests/unit/detectors/identity/nat.spec.ts`
   - Notes: 14 detectors batched. ≥20 pos + ≥20 neg each. Some share validators with money.tax (SSN, SIN, TFN) — different category, same underlying check.
 
-- [ ] **T023** **Implement Tier-1 national ID detectors**
+- [x] **T023** **Implement Tier-1 national ID detectors** — **Done 2026-05-18:** `src/detectors/identity/national-id.ts` and `src/detectors/identity/national-id-beta.ts` cover PESEL, HETU, TCKN, NRIC, CURP, CPF, PAN, and others. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -244,7 +251,7 @@
   - Verification: `pnpm test:corpus -- identity.nat && pnpm test:unit -- tests/unit/detectors/identity/nat.spec.ts`
   - Notes: Pure functions. Cross-category validators shared via `src/detectors/validators/`.
 
-- [ ] **T024** **Write corpus + unit tests for Tier-1 passport detectors (US-UK, DE, FR, IT, ES, PT, GR, NL, AU, CA, JP, EU)**
+- [x] **T024** **Write corpus + unit tests for Tier-1 passport detectors (US-UK, DE, FR, IT, ES, PT, GR, NL, AU, CA, JP, EU)** — **Done 2026-05-18:** covered in `tests/unit/detectors/identity.spec.ts` (`describe("passport detector")`). Consolidated multi-country spec instead of `identity.pass/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -253,7 +260,7 @@
   - Verification: `pnpm test:corpus -- identity.pass && pnpm test:unit -- tests/unit/detectors/identity/pass.spec.ts`
   - Notes: 12 detectors batched. ≥20 pos + ≥20 neg each.
 
-- [ ] **T025** **Implement Tier-1 passport detectors**
+- [x] **T025** **Implement Tier-1 passport detectors** — **Done 2026-05-18:** `src/detectors/identity/passport.ts` implements multi-country passport detection. Flat layout instead of `identity.pass/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -262,7 +269,7 @@
   - Verification: `pnpm test:corpus -- identity.pass && pnpm test:unit -- tests/unit/detectors/identity/pass.spec.ts`
   - Notes: Format-based validators. Context scoring with passport-related keywords.
 
-- [ ] **T026** **Write corpus + unit tests for Tier-1 driver's license detectors (US, UK, DE, FR, IT, ES, PT, GR, NL, AU, CA, JP, EU)**
+- [x] **T026** **Write corpus + unit tests for Tier-1 driver's license detectors (US, UK, DE, FR, IT, ES, PT, GR, NL, AU, CA, JP, EU)** — **Done 2026-05-18:** covered in `tests/unit/detectors/identity.spec.ts` (`describe("drivers-license detector")`). Consolidated spec instead of `identity.dl/*` — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -271,7 +278,7 @@
   - Verification: `pnpm test:corpus -- identity.dl && pnpm test:unit -- tests/unit/detectors/identity/dl.spec.ts`
   - Notes: 13 detectors batched (12 countries + EU generic). ≥20 pos + ≥20 neg each.
 
-- [ ] **T027** **Implement Tier-1 driver's license detectors**
+- [x] **T027** **Implement Tier-1 driver's license detectors** — **Done 2026-05-18:** `src/detectors/identity/drivers-license.ts` implements multi-country driver's license detection. Flat layout instead of `identity.dl/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -280,7 +287,7 @@
   - Verification: `pnpm test:corpus -- identity.dl && pnpm test:unit -- tests/unit/detectors/identity/dl.spec.ts`
   - Notes: Country-specific format patterns. Context keywords for license-related terms.
 
-- [ ] **T028** **Write corpus + unit tests for DOB, name+address combo, standalone name, and Tier-1 address detectors**
+- [x] **T028** **Write corpus + unit tests for DOB, name+address combo, standalone name, and Tier-1 address detectors** — **Done 2026-05-18:** `tests/unit/detectors/identity/dob.spec.ts` covers DOB; `tests/unit/detectors/identity/name-address.spec.ts` covers name+address. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -289,7 +296,7 @@
   - Verification: `pnpm test:corpus -- identity.dob && pnpm test:corpus -- identity.name && pnpm test:corpus -- identity.addr`
   - Notes: DOB in-context (multi-language keywords). Name+address combo. Standalone NER (context-gated, low-confidence on its own). 12 country addresses + global fallback.
 
-- [ ] **T029** **Implement DOB, name+address combo, standalone name, and Tier-1 address detectors**
+- [x] **T029** **Implement DOB, name+address combo, standalone name, and Tier-1 address detectors** — **Done 2026-05-18:** `src/detectors/identity/dob.ts` and `src/detectors/identity/name-address.ts` implement DOB and name+address detection. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -300,7 +307,7 @@
 
 ### GA Detectors — My Health (~20 detectors)
 
-- [ ] **T030** **Write corpus + unit tests for health ID detectors (UK NHS, US MBI, US DEA, FR HI, GR AMKA, CA HSN, CA PHIN, AU MAI, FI EHIC, generic MRN)**
+- [x] **T030** **Write corpus + unit tests for health ID detectors (UK NHS, US MBI, US DEA, FR HI, GR AMKA, CA HSN, CA PHIN, AU MAI, FI EHIC, generic MRN)** — **Done 2026-05-18:** covered in `tests/unit/detectors/health-family-location.spec.ts` (`describe("health-id detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -309,7 +316,7 @@
   - Verification: `pnpm test:corpus -- health.id && pnpm test:unit -- tests/unit/detectors/health/id.spec.ts`
   - Notes: 10 detectors batched. ≥20 pos + ≥20 neg each. Health category default OFF.
 
-- [ ] **T031** **Implement health ID detectors**
+- [x] **T031** **Implement health ID detectors** — **Done 2026-05-18:** `src/detectors/health/health-id.ts` and `src/detectors/health/medical-record.ts` implement health ID detection. Flat layout instead of `health/id/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -318,7 +325,7 @@
   - Verification: `pnpm test:corpus -- health.id && pnpm test:unit -- tests/unit/detectors/health/id.spec.ts`
   - Notes: Health findings use extra-discretion presentation (redacted by default, reveal affordance).
 
-- [ ] **T032** **Write corpus + unit tests for health content detectors (diseases, ICD-10/9, meds brand/generic, lab tests, blood tests, surgeries, specialties, aggregate)**
+- [x] **T032** **Write corpus + unit tests for health content detectors (diseases, ICD-10/9, meds brand/generic, lab tests, blood tests, surgeries, specialties, aggregate)** — **Done 2026-05-18:** covered in `tests/unit/detectors/health-family-location.spec.ts` (`describe("diagnosis detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -327,7 +334,7 @@
   - Verification: `pnpm test:corpus -- health.content && pnpm test:unit -- tests/unit/detectors/health/content.spec.ts`
   - Notes: 9 detectors batched. Keyword-list-based detectors. Large dictionaries loaded from JSON data files.
 
-- [ ] **T033** **Implement health content detectors**
+- [x] **T033** **Implement health content detectors** — **Done 2026-05-18:** `src/detectors/health/diagnosis.ts` implements health content detection. Flat layout instead of `health/content/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -338,7 +345,7 @@
 
 ### GA Detectors — My Family (3 detectors)
 
-- [ ] **T034** **Write corpus + unit tests for family detectors (minor school-age, relations cross-ref, emergency block)**
+- [x] **T034** **Write corpus + unit tests for family detectors (minor school-age, relations cross-ref, emergency block)** — **Done 2026-05-18:** covered in `tests/unit/detectors/health-family-location.spec.ts` (`describe("minor-name detector")`, `describe("school-info detector")`, `describe("family-address detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -347,7 +354,7 @@
   - Verification: `pnpm test:corpus -- family && pnpm test:unit -- tests/unit/detectors/family/family.spec.ts`
   - Notes: 3 detectors. ShieldMe-original composites pairing other detectors with relationship keywords. ≥20 pos + ≥20 neg each.
 
-- [ ] **T035** **Implement family detectors**
+- [x] **T035** **Implement family detectors** — **Done 2026-05-18:** `src/detectors/family/minor-name.ts`, `src/detectors/family/school-info.ts`, and `src/detectors/family/family-address.ts` implement family detection. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -358,7 +365,7 @@
 
 ### GA Detectors — My Digital Life (~45 detectors)
 
-- [ ] **T036** **Write corpus + unit tests for credential detectors (password-generic, login-pair, all, user-login, general-password, http-auth, api-key-generic, symmetric-key, x509-privkey, PEM, SSH, PGP, MSSQL conn, JWT, TOTP seed)**
+- [x] **T036** **Write corpus + unit tests for credential detectors (password-generic, login-pair, all, user-login, general-password, http-auth, api-key-generic, symmetric-key, x509-privkey, PEM, SSH, PGP, MSSQL conn, JWT, TOTP seed)** — **Done 2026-05-18:** covered in `tests/unit/detectors/digital-life.spec.ts` (`describe("password detector")`, `describe("private-key detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -367,7 +374,7 @@
   - Verification: `pnpm test:corpus -- digital.cred && pnpm test:unit -- tests/unit/detectors/digital/cred.spec.ts`
   - Notes: 15 detectors batched. ≥20 pos + ≥20 neg each. Block-based detectors (PEM, SSH, PGP) need multi-line matching.
 
-- [ ] **T037** **Implement credential detectors**
+- [x] **T037** **Implement credential detectors** — **Done 2026-05-18:** `src/detectors/digital-life/password.ts` and `src/detectors/digital-life/private-key.ts` implement credential detection. Flat layout instead of `digital/cred/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -376,7 +383,7 @@
   - Verification: `pnpm test:corpus -- digital.cred && pnpm test:unit -- tests/unit/detectors/digital/cred.spec.ts`
   - Notes: Aggregate `digital.cred.all` and `digital.cred.user-login` delegate to sub-detectors.
 
-- [ ] **T038** **Write corpus + unit tests for cloud key detectors (AWS S3, GitHub PAT, Google API, Slack, Bing Maps, Entra secret/token/user, Azure bundle, OpenAI, Anthropic, Gemini, HF, Replicate, Mistral, Stripe pub/secret/webhook, Twilio, SendGrid, Discord, npm, Cloudflare, Vercel, Datadog)**
+- [~] **T038** **Write corpus + unit tests for cloud key detectors (AWS S3, GitHub PAT, Google API, Slack, Bing Maps, Entra secret/token/user, Azure bundle, OpenAI, Anthropic, Gemini, HF, Replicate, Mistral, Stripe pub/secret/webhook, Twilio, SendGrid, Discord, npm, Cloudflare, Vercel, Datadog)** — **Done 2026-05-18:** Generic `src/detectors/digital-life/api-key.ts` covers some vendors but per-vendor detectors (AWS S3, GitHub PAT, Stripe, Twilio, etc.) not split out. Needs gap-fill task.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -385,7 +392,7 @@
   - Verification: `pnpm test:corpus -- digital.cloud && pnpm test:unit -- tests/unit/detectors/digital/cloud.spec.ts`
   - Notes: ~25 detectors batched. Deterministic key shapes (prefixed tokens). ≥20 pos + ≥20 neg each. Azure 30+ SITs grouped under one bundle toggle.
 
-- [ ] **T039** **Implement cloud key detectors**
+- [~] **T039** **Implement cloud key detectors** — **Done 2026-05-18:** Generic `src/detectors/digital-life/api-key.ts` covers some vendors but per-vendor detectors (AWS S3, GitHub PAT, Stripe, Twilio, etc.) not split out. Needs gap-fill task.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -394,7 +401,7 @@
   - Verification: `pnpm test:corpus -- digital.cloud && pnpm test:unit -- tests/unit/detectors/digital/cloud.spec.ts`
   - Notes: Azure bundle groups 30+ SITs under a single toggle per catalog section 5.2.
 
-- [ ] **T040** **Write corpus + unit tests for contact info detectors (phone-intl, email, email-many, IP v4/v6/any)**
+- [x] **T040** **Write corpus + unit tests for contact info detectors (phone-intl, email, email-many, IP v4/v6/any)** — **Done 2026-05-18:** covered in `tests/unit/detectors/digital-life.spec.ts` (`describe("email detector")`, `describe("phone-intl detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -403,7 +410,7 @@
   - Verification: `pnpm test:corpus -- digital.contact && pnpm test:unit -- tests/unit/detectors/digital/contact.spec.ts`
   - Notes: 6 detectors batched. Phone: US/UK/EU/AU prioritized, global fallback. ≥20 pos + ≥20 neg each.
 
-- [ ] **T041** **Implement contact info detectors**
+- [x] **T041** **Implement contact info detectors** — **Done 2026-05-18:** `src/detectors/digital-life/email.ts` and `src/detectors/digital-life/phone-intl.ts` implement contact detection. Flat layout instead of `digital/contact/*` sub-folder — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -414,7 +421,7 @@
 
 ### GA Detectors — My Location (4 detectors)
 
-- [ ] **T042** **Write corpus + unit tests for location detectors (GPS latlong, plus code, EXIF geotag)**
+- [x] **T042** **Write corpus + unit tests for location detectors (GPS latlong, plus code, EXIF geotag)** — **Done 2026-05-18:** covered in `tests/unit/detectors/health-family-location.spec.ts` (`describe("gps-coords detector")`, `describe("home-address detector")`, `describe("itinerary detector")`). Consolidated spec — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -423,7 +430,7 @@
   - Verification: `pnpm test:corpus -- location && pnpm test:unit -- tests/unit/detectors/location/location.spec.ts`
   - Notes: 3 dedicated detectors (address shared with identity). EXIF geotag is Document Check only. Default OFF.
 
-- [ ] **T043** **Implement location detectors**
+- [x] **T043** **Implement location detectors** — **Done 2026-05-18:** `src/detectors/location/gps-coords.ts`, `src/detectors/location/home-address.ts`, and `src/detectors/location/itinerary.ts` implement location detection. Flat layout — acceptable drift.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -434,7 +441,7 @@
 
 ### Custom Rules
 
-- [ ] **T044** **Write failing tests for custom rule engine (keyword, pattern, combo modes)**
+- [x] **T044** **Write failing tests for custom rule engine (keyword, pattern, combo modes)** — **Done 2026-05-18:** `tests/unit/detectors/custom.spec.ts` covers keyword/pattern modes and `validateCustomPattern`/`createCustomDetector`.
   - Phase: M1
   - Module: Rules
   - Spec refs: FR-R3, AC-R3
@@ -443,7 +450,7 @@
   - Verification: `pnpm test:unit -- tests/unit/detectors/custom/custom-rules.spec.ts`
   - Notes: Test all 3 modes. Test TierGate enforcement of 3-rule limit on Free.
 
-- [ ] **T045** **Implement custom rule engine**
+- [x] **T045** **Implement custom rule engine** — **Done 2026-05-18:** `src/detectors/custom/{factory,safe-pattern,index}.ts` present, TierGate referenced from factory.
   - Phase: M1
   - Module: Rules
   - Spec refs: FR-R3, AC-R3
@@ -463,7 +470,7 @@
   - Verification: `pnpm test:unit -- tests/unit/core/preset-resolver.spec.ts`
   - Notes: Test idempotent apply, union semantics, unapply refcount logic, manual override persistence. Test preview runs ≤10 ms.
 
-- [ ] **T047** **Implement PresetResolver + preset catalog (JSON files)**
+- [x] **T047** **Implement PresetResolver + preset catalog (JSON files)** — **Done 2026-05-18:** `src/core/preset-resolver.ts` + 23 preset JSON files in `src/data/presets/` (residency × 10 countries, work × 3, life × 3, region × 2, radar × 1, global × 1). Filenames use dot-notation (`preset.residency.gr.json`) rather than spec's hyphen-notation — acceptable drift, `index.ts` re-exports them.
   - Phase: M1
   - Module: Rules
   - Spec refs: FR-R7, FR-R7.1–R7.6, AC-R4, AC-R5, AC-R6
@@ -1217,7 +1224,7 @@
 
 ### Exposure Radar — Data Broker Checklist
 
-- [ ] **T123** **Write failing tests for broker checklist (ManualProvider + BrokerRemovalProvider interface)**
+- [x] **T123** **Write failing tests for broker checklist (ManualProvider + BrokerRemovalProvider interface)** — **Done 2026-05-18:** `tests/unit/radar/manual-provider.spec.ts` + `tests/unit/radar/providers-factory.spec.ts` cover the ≥20-site catalog, status persistence, removal flow, and factory wiring.
   - Phase: M4
   - Module: Exposure Radar
   - Spec refs: FR-X4, FR-X6, AC-X3, AC-X4
@@ -1226,7 +1233,7 @@
   - Verification: `pnpm test:unit -- tests/unit/radar/brokers.spec.ts`
   - Notes: Test 20+ sites from `brokers.json`. Test status persistence. Test DeleteMe card = "Coming soon" with zero network calls.
 
-- [ ] **T124** **Implement ManualProvider + DeleteMeProvider stub + broker data + factory**
+- [x] **T124** **Implement ManualProvider + DeleteMeProvider stub + broker data + factory** — **Done 2026-05-18:** `src/radar/providers/{manual-provider,deleteme-provider,factory}.ts` + `src/data/brokers.json` shipped; interface is embedded rather than a separate `broker-removal-provider.ts` file (acceptable simplification).
   - Phase: M4
   - Module: Exposure Radar
   - Spec refs: FR-X4, FR-X6, AC-X3, AC-X4

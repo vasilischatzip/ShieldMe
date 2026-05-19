@@ -34,3 +34,9 @@ tessdata/*.traineddata
 _tmp_*
 test_write_check.txt
 CONTEXT/
+
+# Stray nested clone (artifact of a misplaced `git clone` into the repo root)
+/ShieldMe/
+
+# Stray nested clone (artifact of a misplaced `git clone` into the repo root)
+/ShieldMe/
