@@ -30,7 +30,8 @@
 
 - [x] **TP14** `[H]` **Fix `pnpm/action-setup@v4` version conflict in CI + Deploy workflows** — Files: `.github/workflows/ci.yml`, `.github/workflows/deploy.yml`. Removed inline `version: 9` so the action reads pnpm version from `package.json` `packageManager` field. Was causing `ERR_PNPM_BAD_PM_VERSION` on every Pages deploy run. Verification: re-run deploy on `main` push.
 - [x] **TP15** `[H]` **Ignore stray nested `/ShieldMe/` clone** — Files: `.gitignore`. A misplaced clone created `repo-root/ShieldMe/` containing only a `.git` dir; added to `.gitignore` so it stays out of commits.
-- [ ] **TP16** **Confirm Pages enabled with "GitHub Actions" as source** — Manual step: Repo Settings → Pages → Build and deployment → Source must be "GitHub Actions". Verification: deploy workflow reaches the `deploy` job and outputs a live URL at `https://vasilischatzip.github.io/ShieldMe/`.
+- [x] **TP16** **Confirm Pages enabled with "GitHub Actions" as source** — **Done 2026-05-18:** source set to "GitHub Actions"; deploy reaches live URL at `https://vasilischatzip.github.io/ShieldMe/`.
+- [x] **TP17** `[H]` **Fix SPA base-path routing for `/ShieldMe/` deployment** — Files: NEW `src/app/base.ts`, `src/app/Layout.tsx`, `src/app/App.tsx`, `src/main.tsx`, `src/app/routes/Dashboard.tsx`, `src/app/routes/OAuthCallback.tsx`, `src/app/routes/NotFound.tsx`, `src/drive/client.ts`, `index.html`. **Done 2026-05-19:** introduced `BASE`/`link(path)` helper reading `import.meta.env.BASE_URL`; updated all `<a href>`, programmatic navigations, Route paths, and OAuth redirect URI to be base-aware; set `scope` on `LocationProvider` so router only intercepts in-app links; switched favicon to relative path so Vite rewrites it. Was causing every nav link to 404 to `https://vasilischatzip.github.io/toolkit` instead of `/ShieldMe/toolkit`.
 
 ---
 

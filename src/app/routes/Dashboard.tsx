@@ -10,6 +10,7 @@ import { Header, Badge } from "../ui";
 import { lastScanSummary } from "../state/last-scan";
 import { scoreTier } from "~/core/exposure-score";
 import ExposureGauge, { tierLabel } from "../components/ExposureGauge";
+import { link } from "../base";
 
 const heroState = computed(() => {
   const s = lastScanSummary.value;
@@ -118,7 +119,7 @@ export default function Dashboard() {
         <button
           type="button"
           class="sm-action-card"
-          onClick={() => { window.location.href = "/scan"; }}
+          onClick={() => { window.location.href = link("/scan"); }}
         >
           <div class="sm-action-card__icon sm-action-card__icon--brand" aria-hidden="true">
             <svg
@@ -140,7 +141,7 @@ export default function Dashboard() {
         <button
           type="button"
           class="sm-action-card"
-          onClick={() => { window.location.href = "/cloud"; }}
+          onClick={() => { window.location.href = link("/cloud"); }}
         >
           <div class="sm-action-card__icon sm-action-card__icon--success" aria-hidden="true">
             <svg
@@ -162,7 +163,7 @@ export default function Dashboard() {
         <button
           type="button"
           class="sm-action-card"
-          onClick={() => { window.location.href = "/radar"; }}
+          onClick={() => { window.location.href = link("/radar"); }}
         >
           <div class="sm-action-card__icon sm-action-card__icon--warning" aria-hidden="true">
             <svg

@@ -220,9 +220,15 @@ export function createDriveClient(opts: DriveClientOpts = {}): DriveClient {
   const fetchFn   = opts.fetchFn ?? fetch.bind(globalThis);
   const store     = opts.store   ?? localStore;
   const clientId  = opts.clientId ?? CLIENT_ID;
+  // Default redirect URI honors the app's deploy base (e.g. /ShieldMe/) so
+  // Google's authorization endpoint sees the same path that the SPA serves
+  // OAuthCallback on. The base is injected at build time by Vite via
+  // import.meta.env.BASE_URL (driven by SHIELDME_BASE_PATH).
+  const basePath: string = (import.meta as { env?: { BASE_URL?: string } }).env?.BASE_URL ?? "/";
+  const baseNoSlash = basePath.replace(/\/$/, "");
   const redirectUri = opts.redirectUri ?? (typeof window !== "undefined"
-    ? `${window.location.origin}/oauth/callback`
-    : "http://localhost:5173/oauth/callback");
+    ? `${window.location.origin}${baseNoSlash}/oauth/callback`
+    : `http://localhost:5173${baseNoSlash}/oauth/callback`);
   const bucket    = new TokenBucket(
     opts.bucketCapacity ?? TOKEN_BUCKET_CAPACITY,
     opts.refillMs       ?? REFILL_RATE_MS,

@@ -6,18 +6,21 @@
  */
 import type { ComponentChildren } from "preact";
 import { useLocation } from "preact-iso";
+import { link } from "./base";
 
-type NavItem = { href: string; label: string };
+type NavItem = { path: string; label: string };
 
+// Logical (base-relative) paths. Rendered hrefs go through `link()` so the
+// SPA works whether deployed at "/" or at a subdirectory like "/ShieldMe/".
 const NAV: NavItem[] = [
-  { href: "/", label: "Dashboard" },
-  { href: "/scan", label: "Document Check" },
-  { href: "/email", label: "Email Scanner" },
-  { href: "/cloud", label: "Cloud Audit" },
-  { href: "/radar", label: "Exposure Radar" },
-  { href: "/calendar", label: "Calendar Audit" },
-  { href: "/toolkit", label: "Privacy Toolkit" },
-  { href: "/settings", label: "Settings" },
+  { path: "/", label: "Dashboard" },
+  { path: "/scan", label: "Document Check" },
+  { path: "/email", label: "Email Scanner" },
+  { path: "/cloud", label: "Cloud Audit" },
+  { path: "/radar", label: "Exposure Radar" },
+  { path: "/calendar", label: "Calendar Audit" },
+  { path: "/toolkit", label: "Privacy Toolkit" },
+  { path: "/settings", label: "Settings" },
 ];
 
 export function Layout({ children }: { children: ComponentChildren }) {
@@ -25,17 +28,18 @@ export function Layout({ children }: { children: ComponentChildren }) {
   return (
     <div class="app-shell">
       <header class="app-header" role="banner">
-        <a href="/" class="app-header__brand" aria-label="ShieldMe — Home">
+        <a href={link("/")} class="app-header__brand" aria-label="ShieldMe — Home">
           <ShieldLogo />
           <span class="app-header__title">ShieldMe</span>
         </a>
         <nav class="app-nav" aria-label="Primary">
           {NAV.map((item) => {
+            // loc.path is base-relative (LocationProvider scope strips the base).
             const active =
-              item.href === "/" ? loc.path === "/" : loc.path.startsWith(item.href);
+              item.path === "/" ? loc.path === "/" : loc.path.startsWith(item.path);
             return (
               <a
-                href={item.href}
+                href={link(item.path)}
                 class={"app-nav__link" + (active ? " is-active" : "")}
                 aria-current={active ? "page" : undefined}
               >
@@ -51,8 +55,12 @@ export function Layout({ children }: { children: ComponentChildren }) {
       <footer class="app-footer" role="contentinfo">
         <span>ShieldMe — client-side privacy audit. Nothing leaves your device.</span>
         <nav aria-label="Footer">
-          <a href="/settings">Settings</a>
-          <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
+          <a href={link("/settings")}>Settings</a>
+          <a
+            href="https://github.com/vasilischatzip/ShieldMe"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Source
           </a>
         </nav>

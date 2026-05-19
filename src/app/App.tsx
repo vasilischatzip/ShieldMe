@@ -7,6 +7,7 @@
  */
 import { ErrorBoundary, lazy, Route, Router } from "preact-iso";
 import { Layout } from "./Layout";
+import { link } from "./base";
 
 const Dashboard = lazy(() => import("./routes/Dashboard"));
 const DocumentCheck = lazy(() => import("./routes/DocumentCheck"));
@@ -21,22 +22,24 @@ const Pro = lazy(() => import("./routes/Pro"));
 const OAuthCallback = lazy(() => import("./routes/OAuthCallback"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 
+// Route paths must match `location.pathname` exactly, which on GitHub Pages
+// includes the /ShieldMe/ prefix. `link()` handles dev (no prefix) vs prod.
 export function App() {
   return (
     <ErrorBoundary>
       <Layout>
         <Router>
-          <Route path="/" component={Dashboard} />
-          <Route path="/scan" component={DocumentCheck} />
-          <Route path="/email" component={EmailScanner} />
-          <Route path="/cloud" component={CloudAudit} />
-          <Route path="/radar" component={Radar} />
-          <Route path="/calendar" component={CalendarRoute} />
-          <Route path="/toolkit" component={Toolkit} />
-          <Route path="/settings" component={Settings} />
-          <Route path="/onboarding" component={Onboarding} />
-          <Route path="/pro" component={Pro} />
-          <Route path="/oauth/callback" component={OAuthCallback} />
+          <Route path={link("/")} component={Dashboard} />
+          <Route path={link("/scan")} component={DocumentCheck} />
+          <Route path={link("/email")} component={EmailScanner} />
+          <Route path={link("/cloud")} component={CloudAudit} />
+          <Route path={link("/radar")} component={Radar} />
+          <Route path={link("/calendar")} component={CalendarRoute} />
+          <Route path={link("/toolkit")} component={Toolkit} />
+          <Route path={link("/settings")} component={Settings} />
+          <Route path={link("/onboarding")} component={Onboarding} />
+          <Route path={link("/pro")} component={Pro} />
+          <Route path={link("/oauth/callback")} component={OAuthCallback} />
           <Route default component={NotFound} />
         </Router>
       </Layout>

@@ -10,6 +10,7 @@ import { signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { useLocation } from "preact-iso";
 import { exchangeCodeForTokens, readPendingPkce } from "~/core/identity/pkce";
+import { link } from "../base";
 
 type State =
   | { kind: "exchanging" }
@@ -30,7 +31,7 @@ export default function OAuthCallback() {
       <article role="alert" class="route-oauth-error">
         <h2>Couldn't complete sign-in</h2>
         <p>{s.message}</p>
-        <a href="/">Back to Dashboard</a>
+        <a href={link("/")}>Back to Dashboard</a>
       </article>
     );
   return <p>Connected — redirecting…</p>;
@@ -60,8 +61,14 @@ async function run(navigate: (path: string) => void) {
       "shieldme.tokens." + pending.providerId,
       JSON.stringify({ tokens, scope: tokens.scope, expiresAt: Date.now() + tokens.expires_in * 1000 }),
     );
-    state.value = { kind: "success", redirect: pending.redirectAfter };
-    navigate(pending.redirectAfter);
+    // `pending.redirectAfter` is stored as a logical (base-relative) path
+    // like "/cloud". Convert to a full path so preact-iso's router matches
+    // the Route paths in App.tsx (which are also `link()`-wrapped).
+    const target = link(
+      pending.redirectAfter.startsWith("/") ? pending.redirectAfter : "/" + pending.redirectAfter,
+    );
+    state.value = { kind: "success", redirect: target };
+    navigate(target);
   } catch (err) {
     state.value = {
       kind: "error",
