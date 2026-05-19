@@ -1239,3 +1239,293 @@ textarea.sm-input {
     animation-duration: 1ms !important;
   }
 }
+
+/* ================================================================
+   Web-app shell (post-pivot 2026-05-17)
+   Layout.tsx uses these — separate from the popup .sm-shell styles
+   above which are kept for component-level styling inside routes.
+   ================================================================ */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sm-bg);
+  color: var(--sm-text);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sm-space-5, 24px);
+  padding: 14px clamp(16px, 4vw, 40px);
+  background: var(--sm-bg-elevated);
+  border-bottom: 1px solid var(--sm-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.app-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--sm-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.app-header__brand:hover {
+  color: var(--sm-brand);
+}
+
+.app-header__title {
+  font-size: var(--sm-fs-lg, 17px);
+}
+
+.app-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.app-nav__link {
+  padding: 8px 14px;
+  border-radius: var(--sm-radius, 10px);
+  color: var(--sm-text-muted);
+  font-size: var(--sm-fs-sm, 14px);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+.app-nav__link:hover {
+  background: var(--sm-surface-hover);
+  color: var(--sm-text);
+}
+
+.app-nav__link.is-active {
+  background: var(--sm-brand-soft);
+  color: var(--sm-brand-text);
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+}
+
+.app-footer {
+  border-top: 1px solid var(--sm-border);
+  background: var(--sm-bg-elevated);
+  padding: 18px clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--sm-text-muted);
+  font-size: var(--sm-fs-sm, 14px);
+}
+
+.app-footer nav {
+  display: flex;
+  gap: 16px;
+}
+
+.app-footer a {
+  color: var(--sm-text-muted);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  color: var(--sm-brand);
+}
+
+/* Routes get a max-width container by default via .app-main; individual
+   routes can still set their own .route .route-foo styles. */
+.route {
+  display: block;
+}
+
+.route-notfound {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.route-notfound h1 {
+  font-size: var(--sm-fs-2xl, 28px);
+  margin: 0 0 12px;
+}
+
+.route-oauth-error {
+  padding: 40px 0;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .app-nav {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ================================================================
+   Web-app shell (post-pivot 2026-05-17)
+   Layout.tsx uses these — separate from the popup .sm-shell styles
+   above which are kept for component-level styling inside routes.
+   ================================================================ */
+
+.app-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sm-bg);
+  color: var(--sm-text);
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: var(--sm-space-5, 24px);
+  padding: 14px clamp(16px, 4vw, 40px);
+  background: var(--sm-bg-elevated);
+  border-bottom: 1px solid var(--sm-border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+
+.app-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--sm-text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+
+.app-header__brand:hover {
+  color: var(--sm-brand);
+}
+
+.app-header__title {
+  font-size: var(--sm-fs-lg, 17px);
+}
+
+.app-nav {
+  display: flex;
+  gap: 4px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.app-nav__link {
+  padding: 8px 14px;
+  border-radius: var(--sm-radius, 10px);
+  color: var(--sm-text-muted);
+  font-size: var(--sm-fs-sm, 14px);
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+.app-nav__link:hover {
+  background: var(--sm-surface-hover);
+  color: var(--sm-text);
+}
+
+.app-nav__link.is-active {
+  background: var(--sm-brand-soft);
+  color: var(--sm-brand-text);
+}
+
+.app-main {
+  flex: 1;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 40px) clamp(16px, 4vw, 40px);
+}
+
+.app-footer {
+  border-top: 1px solid var(--sm-border);
+  background: var(--sm-bg-elevated);
+  padding: 18px clamp(16px, 4vw, 40px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: var(--sm-text-muted);
+  font-size: var(--sm-fs-sm, 14px);
+}
+
+.app-footer nav {
+  display: flex;
+  gap: 16px;
+}
+
+.app-footer a {
+  color: var(--sm-text-muted);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  color: var(--sm-brand);
+}
+
+.route {
+  display: block;
+}
+
+.route-notfound {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.route-notfound h1 {
+  font-size: var(--sm-fs-2xl, 28px);
+  margin: 0 0 12px;
+}
+
+.route-oauth-error {
+  padding: 40px 0;
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .app-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .app-nav {
+    margin-left: 0;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}

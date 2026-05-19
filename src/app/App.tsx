@@ -7,7 +7,7 @@
  */
 import { ErrorBoundary, lazy, Route, Router } from "preact-iso";
 import { Layout } from "./Layout";
-import { link } from "./base";
+import { routePath } from "./base";
 
 const Dashboard = lazy(() => import("./routes/Dashboard"));
 const DocumentCheck = lazy(() => import("./routes/DocumentCheck"));
@@ -22,24 +22,24 @@ const Pro = lazy(() => import("./routes/Pro"));
 const OAuthCallback = lazy(() => import("./routes/OAuthCallback"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 
-// Route paths must match `location.pathname` exactly, which on GitHub Pages
-// includes the /ShieldMe/ prefix. `link()` handles dev (no prefix) vs prod.
+// Route paths must match `location.pathname` after preact-iso's trailing-slash
+// normalization. `routePath()` handles this — see src/app/base.ts.
 export function App() {
   return (
     <ErrorBoundary>
       <Layout>
         <Router>
-          <Route path={link("/")} component={Dashboard} />
-          <Route path={link("/scan")} component={DocumentCheck} />
-          <Route path={link("/email")} component={EmailScanner} />
-          <Route path={link("/cloud")} component={CloudAudit} />
-          <Route path={link("/radar")} component={Radar} />
-          <Route path={link("/calendar")} component={CalendarRoute} />
-          <Route path={link("/toolkit")} component={Toolkit} />
-          <Route path={link("/settings")} component={Settings} />
-          <Route path={link("/onboarding")} component={Onboarding} />
-          <Route path={link("/pro")} component={Pro} />
-          <Route path={link("/oauth/callback")} component={OAuthCallback} />
+          <Route path={routePath("/")} component={Dashboard} />
+          <Route path={routePath("/scan")} component={DocumentCheck} />
+          <Route path={routePath("/email")} component={EmailScanner} />
+          <Route path={routePath("/cloud")} component={CloudAudit} />
+          <Route path={routePath("/radar")} component={Radar} />
+          <Route path={routePath("/calendar")} component={CalendarRoute} />
+          <Route path={routePath("/toolkit")} component={Toolkit} />
+          <Route path={routePath("/settings")} component={Settings} />
+          <Route path={routePath("/onboarding")} component={Onboarding} />
+          <Route path={routePath("/pro")} component={Pro} />
+          <Route path={routePath("/oauth/callback")} component={OAuthCallback} />
           <Route default component={NotFound} />
         </Router>
       </Layout>

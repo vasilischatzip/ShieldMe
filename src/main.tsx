@@ -1,7 +1,7 @@
 /**
  * ShieldMe SPA root entry.
  *
- * Post-pivot 2026-05-17 — web-app variant.
+ * Post-pivot 2026-05-17 - web-app variant.
  * Mounts <App/> into #app and registers the preact-iso location provider.
  */
 import { render } from "preact";

@@ -25,7 +25,7 @@ export default function OAuthCallback() {
     void run(loc.route);
   }, []);
   const s = state.value;
-  if (s.kind === "exchanging") return <p>Connecting your account…</p>;
+  if (s.kind === "exchanging") return <p>Connecting your account...</p>;
   if (s.kind === "error")
     return (
       <article role="alert" class="route-oauth-error">
@@ -34,7 +34,7 @@ export default function OAuthCallback() {
         <a href={link("/")}>Back to Dashboard</a>
       </article>
     );
-  return <p>Connected — redirecting…</p>;
+  return <p>Connected - redirecting...</p>;
 }
 
 async function run(navigate: (path: string) => void) {
@@ -54,18 +54,21 @@ async function run(navigate: (path: string) => void) {
       redirectUri: pending.redirectUri,
       codeVerifier: pending.codeVerifier,
     });
-    // For v1.0 we just stash the access token in sessionStorage so the
-    // module that initiated the flow can pick it up. Long-lived storage
-    // moves into the AccountManager when M2 lands.
     sessionStorage.setItem(
       "shieldme.tokens." + pending.providerId,
-      JSON.stringify({ tokens, scope: tokens.scope, expiresAt: Date.now() + tokens.expires_in * 1000 }),
+      JSON.stringify({
+        tokens,
+        scope: tokens.scope,
+        expiresAt: Date.now() + tokens.expires_in * 1000,
+      }),
     );
-    // `pending.redirectAfter` is stored as a logical (base-relative) path
-    // like "/cloud". Convert to a full path so preact-iso's router matches
-    // the Route paths in App.tsx (which are also `link()`-wrapped).
+    // `pending.redirectAfter` is logical (e.g. "/cloud"). Convert to a full
+    // path so preact-iso matches the Route paths in App.tsx (also wrapped
+    // via routePath()).
     const target = link(
-      pending.redirectAfter.startsWith("/") ? pending.redirectAfter : "/" + pending.redirectAfter,
+      pending.redirectAfter.startsWith("/")
+        ? pending.redirectAfter
+        : "/" + pending.redirectAfter,
     );
     state.value = { kind: "success", redirect: target };
     navigate(target);

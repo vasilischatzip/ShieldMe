@@ -6,7 +6,7 @@
  */
 import type { ComponentChildren } from "preact";
 import { useLocation } from "preact-iso";
-import { link } from "./base";
+import { link, stripBase } from "./base";
 
 type NavItem = { path: string; label: string };
 
@@ -25,6 +25,9 @@ const NAV: NavItem[] = [
 
 export function Layout({ children }: { children: ComponentChildren }) {
   const loc = useLocation();
+  // loc.path includes the deploy base (e.g. "/ShieldMe/toolkit") — strip it
+  // before comparing against the logical nav paths.
+  const here = stripBase(loc.path);
   return (
     <div class="app-shell">
       <header class="app-header" role="banner">
@@ -34,9 +37,7 @@ export function Layout({ children }: { children: ComponentChildren }) {
         </a>
         <nav class="app-nav" aria-label="Primary">
           {NAV.map((item) => {
-            // loc.path is base-relative (LocationProvider scope strips the base).
-            const active =
-              item.path === "/" ? loc.path === "/" : loc.path.startsWith(item.path);
+            const active = item.path === "/" ? here === "/" : here.startsWith(item.path);
             return (
               <a
                 href={link(item.path)}
