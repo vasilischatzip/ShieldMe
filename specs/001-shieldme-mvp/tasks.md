@@ -1,8 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-20 (T018/T019 Tier-1 tax ID detectors + T069–T073 acceptance tests) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Status:** active · **Updated:** 2026-05-20 (T018/T019 tax IDs + T038/T039 cloud keys + T069–T073 acceptance tests) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
 **Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
-**Progress (2026-05-20):** 97 `[x]` done · 2 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
+**Progress (2026-05-20):** 99 `[x]` done · 0 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -385,7 +385,7 @@
   - Verification: `pnpm test:corpus -- digital.cred && pnpm test:unit -- tests/unit/detectors/digital/cred.spec.ts`
   - Notes: Aggregate `digital.cred.all` and `digital.cred.user-login` delegate to sub-detectors.
 
-- [~] **T038** **Write corpus + unit tests for cloud key detectors (AWS S3, GitHub PAT, Google API, Slack, Bing Maps, Entra secret/token/user, Azure bundle, OpenAI, Anthropic, Gemini, HF, Replicate, Mistral, Stripe pub/secret/webhook, Twilio, SendGrid, Discord, npm, Cloudflare, Vercel, Datadog)** — **Done 2026-05-18:** Generic `src/detectors/digital-life/api-key.ts` covers some vendors but per-vendor detectors (AWS S3, GitHub PAT, Stripe, Twilio, etc.) not split out. Needs gap-fill task.
+- [x] **T038** **Write corpus + unit tests for cloud key detectors (AWS S3, GitHub PAT, Google API, Slack, Bing Maps, Entra secret/token/user, Azure bundle, OpenAI, Anthropic, Gemini, HF, Replicate, Mistral, Stripe pub/secret/webhook, Twilio, SendGrid, Discord, npm, Cloudflare, Vercel, Datadog)** — **Done 2026-05-20:** 63 unit tests in `tests/unit/detectors/digital-life/cloud-keys.spec.ts` covering all 11 per-vendor detectors. AWS/GitHub/Google/Stripe secret/Anthropic remain in aggregate api-key.ts (backward compat: presets reference "api-key"). Vendors without unambiguous prefixes (Cloudflare, Vercel, Datadog, Bing Maps, Mistral, Gemini) deferred — no deterministic prefix pattern.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -394,7 +394,7 @@
   - Verification: `pnpm test:corpus -- digital.cloud && pnpm test:unit -- tests/unit/detectors/digital/cloud.spec.ts`
   - Notes: ~25 detectors batched. Deterministic key shapes (prefixed tokens). ≥20 pos + ≥20 neg each. Azure 30+ SITs grouped under one bundle toggle.
 
-- [~] **T039** **Implement cloud key detectors** — **Done 2026-05-18:** Generic `src/detectors/digital-life/api-key.ts` covers some vendors but per-vendor detectors (AWS S3, GitHub PAT, Stripe, Twilio, etc.) not split out. Needs gap-fill task.
+- [x] **T039** **Implement cloud key detectors** — **Done 2026-05-20:** `src/detectors/digital-life/cloud-keys.ts` — 11 GA-tier per-vendor detectors: slack-token (xoxb/xoxp/xoxs/xoxa/xapp), openai-key (sk- excluding sk-ant-), huggingface-token (hf_), replicate-token (r8_), stripe-pub (pk_live_/pk_test_), stripe-webhook (whsec_), twilio-account-sid (AC+32hex), sendgrid-key (SG.20+.43+), npm-token (npm_+36), azure-conn-string (AccountKey= 88-char base64), discord-token (keyword-gated 3-part). All registered in digital-life/index.ts. pnpm verify green; 1512 tests pass.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
