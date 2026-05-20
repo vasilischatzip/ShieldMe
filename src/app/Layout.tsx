@@ -14,6 +14,7 @@ type NavItem = { path: string; label: string };
 // SPA works whether deployed at "/" or at a subdirectory like "/ShieldMe/".
 const NAV: NavItem[] = [
   { path: "/", label: "Dashboard" },
+  { path: "/rules", label: "Protection Rules" },
   { path: "/scan", label: "Document Check" },
   { path: "/email", label: "Email Scanner" },
   { path: "/cloud", label: "Cloud Audit" },

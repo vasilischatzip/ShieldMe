@@ -9,6 +9,7 @@ import { LocationProvider } from "preact-iso";
 import { App } from "./app/App";
 import { BASE } from "./app/base";
 import "./app/styles.css";
+import "./app/styles.modern.css";
 
 const root = document.getElementById("app");
 if (!root) throw new Error("ShieldMe: #app root element missing");

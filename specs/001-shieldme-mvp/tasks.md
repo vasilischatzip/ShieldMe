@@ -633,7 +633,7 @@
 
 ### Protection Rules UI
 
-- [ ] **T064** **Write failing tests for Protection Rules UI (category toggles, detector toggles, custom rules, preset picker)**
+- [x] **T064** **Write failing tests for Protection Rules UI (category toggles, detector toggles, custom rules, preset picker)** — **Done 2026-05-19:** `tests/unit/app/routes/rules.spec.tsx` (474 lines) — 48 `it()` blocks across 9 `describe()` groups: category defaults (FR-R1/AC-R1), toggle isolation (FR-R5/AC-R2), beta switch (AC-R7), custom rules tier gate (AC-R3), preset catalog (FR-R7), consumer-copy verification, preset apply/unapply (FR-R7.1/.3/.4), advanced fold (FR-R2), request-a-protection link (FR-R4). Path adapted to post-pivot `tests/unit/app/routes/` (spec said `tests/unit/popup/routes/`).
   - Phase: M1
   - Module: Rules
   - Spec refs: FR-R1, FR-R2, FR-R3, FR-R4, FR-R5, FR-R6, FR-R7, AC-R1, AC-R2, AC-R3, AC-R7
@@ -642,7 +642,7 @@
   - Verification: `pnpm test:unit -- tests/unit/popup/routes/rules.spec.tsx`
   - Notes: Test 3 default ON / 3 default OFF. Test Advanced fold. Test Beta detector switch. Test preset picker with preview panel.
 
-- [ ] **T065** **Implement Protection Rules UI**
+- [x] **T065** **Implement Protection Rules UI** — **Done 2026-05-19:** 5 new files in `src/app/routes/` (post-pivot path) totalling 545 lines: `Rules.tsx` (109), `rules/category-toggle.tsx` (65), `rules/detector-list.tsx` (58), `rules/custom-rules.tsx` (132), `rules/preset-picker.tsx` (181). Registered as `/rules` route in `App.tsx` and second nav entry in `Layout.tsx`. PresetPickerCard shows diff preview with consumer copy only (copy linter green). Free-tier custom-rules cap of 3 enforced via `TierGate.check("rules:custom-add", ctx)`. **Follow-ups:** (a) i18n labels currently fall back to category.id — needs `t(category.labelKey)` once translation helper is mocked in tests; (b) Beta-detector visibility relies on `registry.byCategory()` runtime data — intentional per spec.
   - Phase: M1
   - Module: Rules
   - Spec refs: FR-R1, FR-R2, FR-R3, FR-R4, FR-R5, FR-R6, FR-R7, AC-R1, AC-R2, AC-R3, AC-R7

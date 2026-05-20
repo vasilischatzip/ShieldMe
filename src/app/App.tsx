@@ -20,6 +20,7 @@ const Settings = lazy(() => import("./routes/Settings"));
 const Onboarding = lazy(() => import("./routes/Onboarding"));
 const Pro = lazy(() => import("./routes/Pro"));
 const OAuthCallback = lazy(() => import("./routes/OAuthCallback"));
+const Rules = lazy(() => import("./routes/Rules"));
 const NotFound = lazy(() => import("./routes/NotFound"));
 
 // Route paths must match `location.pathname` after preact-iso's trailing-slash
@@ -30,6 +31,7 @@ export function App() {
       <Layout>
         <Router>
           <Route path={routePath("/")} component={Dashboard} />
+          <Route path={routePath("/rules")} component={Rules} />
           <Route path={routePath("/scan")} component={DocumentCheck} />
           <Route path={routePath("/email")} component={EmailScanner} />
           <Route path={routePath("/cloud")} component={CloudAudit} />
