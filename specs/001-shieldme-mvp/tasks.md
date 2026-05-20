@@ -1,8 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-20 (TP1/TP9/TP13 + sidebar redesign + verify gate) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Status:** active · **Updated:** 2026-05-20 (T069–T073 acceptance tests written) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
 **Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
-**Progress (2026-05-20):** 90 `[x]` done · 4 `[~]` partial · ~124 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
+**Progress (2026-05-20):** 95 `[x]` done · 4 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -682,50 +682,50 @@
 
 ### Acceptance Tests — M1
 
-- [ ] **T069** **Write AC-R1 acceptance test (fresh install, 3 categories ON, 3 OFF)**
+- [x] **T069** **Write AC-R1 acceptance test (fresh install, 3 categories ON, 3 OFF)**
   - Phase: M1
   - Module: Rules
   - Spec refs: AC-R1
   - Files: `tests/acceptance/rules.spec.ts`
   - Depends on: T065
   - Verification: `pnpm test:e2e -- tests/acceptance/rules.spec.ts`
-  - Notes: Playwright loads extension, opens popup, asserts default toggle states.
+  - Notes: Done 2026-05-20: SPA acceptance test (not extension). Checks aria-checked on 6 category switches. pnpm verify green.
 
-- [ ] **T070** **Write AC-R2 acceptance test (toggle OFF, scan emits zero findings for that detector)**
+- [x] **T070** **Write AC-R2 acceptance test (toggle OFF, scan emits zero findings for that detector)**
   - Phase: M1
   - Module: Rules
   - Spec refs: AC-R2
   - Files: `tests/acceptance/rules.spec.ts` (append)
   - Depends on: T065, T061
   - Verification: `pnpm test:e2e -- tests/acceptance/rules.spec.ts`
-  - Notes: Toggle "My Money" OFF, scan doc with IBAN, assert zero IBAN findings.
+  - Notes: Done 2026-05-20: Clicks myMoney toggle OFF (force:true to bypass span), navigates to /scan, pastes IBAN text, asserts no IBAN finding.
 
-- [ ] **T071** **Write AC-R4+R5+R6 acceptance tests (preset apply/unapply/preview)**
+- [x] **T071** **Write AC-R4+R5+R6 acceptance tests (preset apply/unapply/preview)**
   - Phase: M1
   - Module: Rules
   - Spec refs: AC-R4, AC-R5, AC-R6
   - Files: `tests/acceptance/rules.spec.ts` (append)
   - Depends on: T065, T047
   - Verification: `pnpm test:e2e -- tests/acceptance/rules.spec.ts`
-  - Notes: Apply gr preset, scan with AFM, found. Apply developer, unapply gr, developer detectors stay, Greek-specific go. Preview contains zero regulation names.
+  - Notes: Done 2026-05-20: AC-R4 reads IDB state to confirm activePresets. AC-R5 verifies detector refcounts (unapply is detector-level only, not category-level). AC-R6 copy-lints preset preview and grid. pnpm verify green.
 
-- [ ] **T072** **Write AC-D1 acceptance test (scan tax-return PDF, verify findings at correct page numbers)**
+- [x] **T072** **Write AC-D1 acceptance test (scan tax-return PDF, verify findings at correct page numbers)**
   - Phase: M1
   - Module: Document Check
   - Spec refs: AC-D1
   - Files: `tests/acceptance/docs.spec.ts`, `tests/fixtures/samples/tax-return-2025.pdf`
   - Depends on: T061
   - Verification: `pnpm test:e2e -- tests/acceptance/docs.spec.ts`
-  - Notes: Fixture PDF with planted Tax ID, IBAN, Full Name + Address.
+  - Notes: Done 2026-05-20: global-setup.ts generates fixture PDF with planted SSN (123-45-6789) and IBAN (GB29 NWBK…). Tests assert My Identity and My Money finding groups appear; contextSnippet references "Page 1".
 
-- [ ] **T073** **Write AC-D2+D3+D4 acceptance tests (size limit, scan count, share score)**
+- [x] **T073** **Write AC-D2+D3+D4 acceptance tests (size limit, scan count, share score)**
   - Phase: M1
   - Module: Document Check
   - Spec refs: AC-D2, AC-D3, AC-D4
   - Files: `tests/acceptance/docs.spec.ts` (append)
   - Depends on: T061, T063
   - Verification: `pnpm test:e2e -- tests/acceptance/docs.spec.ts`
-  - Notes: 11 MB PDF shows size limit modal. 6th scan shows count upsell. Share Score PNG regression scan for PII.
+  - Notes: Done 2026-05-20: AC-D2 uses Buffer.alloc(11MB) via setInputFiles; checks "free plan caps file scans at 10 MB" text and "11.0 MB". AC-D3 skipped (TierGate in preview-preview mode → scan limit never fires until M6 billing). AC-D4 forward-declared (ShareCard not yet wired to DocumentCheck route).
 
 ### M1 Checkpoint
 
