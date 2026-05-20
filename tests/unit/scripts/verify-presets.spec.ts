@@ -43,11 +43,11 @@ function withTempPreset(preset: object): { stdout: string; stderr: string; statu
   const presetsDir = join(tmpRoot, "src", "data", "presets");
   mkdirSync(presetsDir, { recursive: true });
 
-  // Mirror _locales/en/messages.json
-  const localesDir = join(tmpRoot, "_locales", "en");
+  // Mirror public/locales/en.json (post-pivot flat locale file)
+  const localesDir = join(tmpRoot, "public", "locales");
   mkdirSync(localesDir, { recursive: true });
-  const realMessages = join(ROOT, "_locales", "en", "messages.json");
-  writeFileSync(join(localesDir, "messages.json"), readFileSync(realMessages));
+  const realMessages = join(ROOT, "public", "locales", "en.json");
+  writeFileSync(join(localesDir, "en.json"), readFileSync(realMessages));
 
   // Mirror src/detectors (just copy the index files for ID extraction)
   // Simplest: use a symlink-free copy of one detector that has a known id.
@@ -108,7 +108,7 @@ function collectDetectorIds(dir) {
 }
 
 const knownDetectorIds = collectDetectorIds(join(ROOT, "src", "detectors"));
-const raw = JSON.parse(readFileSync(join(ROOT, "_locales", "en", "messages.json"), "utf8"));
+const raw = JSON.parse(readFileSync(join(ROOT, "public", "locales", "en.json"), "utf8"));
 const i18nKeys = new Set(Object.keys(raw));
 const presetsDir = join(ROOT, "src", "data", "presets");
 const presetFiles = readdirSync(presetsDir).filter(f => f.endsWith(".json"));
@@ -191,8 +191,8 @@ describe("verify-presets — invalid presets caught", () => {
   const GOOD_PRESET = {
     id: "credit-card",          // reuse a known detector ID as a fake preset id
     version: 1,
-    titleI18nKey: "preset.default.global.title",
-    descriptionI18nKey: "preset.default.global.desc",
+    titleI18nKey: "preset_default_global_title",
+    descriptionI18nKey: "preset_default_global_desc",
     locale: "global",
     shipTier: "ga",
     sourceNote: "test",
@@ -240,11 +240,11 @@ describe("verify-presets — invalid presets caught", () => {
     const presetsDir = join(tmpRoot, "src", "data", "presets");
     mkdirSync(presetsDir, { recursive: true });
 
-    const localesDir = join(tmpRoot, "_locales", "en");
+    const localesDir = join(tmpRoot, "public", "locales");
     mkdirSync(localesDir, { recursive: true });
     writeFileSync(
-      join(localesDir, "messages.json"),
-      readFileSync(join(ROOT, "_locales", "en", "messages.json")),
+      join(localesDir, "en.json"),
+      readFileSync(join(ROOT, "public", "locales", "en.json")),
     );
 
     const detDir = join(tmpRoot, "src", "detectors", "money");

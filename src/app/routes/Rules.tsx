@@ -11,7 +11,7 @@
 import { signal } from "@preact/signals";
 import { useEffect } from "preact/hooks";
 import { Header, Switch, SectionTitle, Button } from "../ui";
-import { CATEGORIES, loadRules, rulesState, toggleCategory } from "~/core/rules";
+import { CATEGORIES, loadRules, rulesState } from "~/core/rules";
 import type { CategoryId } from "~/core/rules";
 import { CategoryToggle } from "./rules/category-toggle";
 import { CustomRules } from "./rules/custom-rules";

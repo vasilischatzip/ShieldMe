@@ -63,33 +63,3 @@ export function stripBase(fullPath: string): string {
   return fullPath;
 }
 
-/**
- * Build a route-matching path. preact-iso normalizes `location.pathname` by
- * stripping the trailing slash before route matching, so the home route at
- * `/ShieldMe/` must be registered as `/ShieldMe` (or `/` in dev). Use this
- * for `<Route path>` values; use `link()` for `<a href>` values.
- */
-export function routePath(path: string): string {
-  if (!path.startsWith("/")) {
-    throw new Error(`[base.routePath] path must start with "/" — got: ${path}`);
-  }
-  if (path === "/") return BASE || "/";
-  return BASE + path;
-}
-
-/**
- * Strip the base prefix from a full pathname. Useful for nav-link
- * "is-active" checks: compare the stripped path against the logical
- * (base-relative) nav entry.
- *
- *   stripBase("/ShieldMe/toolkit") -> "/toolkit"
- *   stripBase("/ShieldMe")         -> "/"
- *   stripBase("/ShieldMe/")        -> "/"
- *   stripBase("/toolkit")          -> "/toolkit"  (dev mode)
- */
-export function stripBase(fullPath: string): string {
-  if (!BASE) return fullPath || "/";
-  if (fullPath === BASE || fullPath === BASE_WITH_SLASH) return "/";
-  if (fullPath.startsWith(BASE_WITH_SLASH)) return "/" + fullPath.slice(BASE_WITH_SLASH.length);
-  return fullPath;
-}

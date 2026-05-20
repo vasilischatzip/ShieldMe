@@ -18,7 +18,7 @@ if (!root) throw new Error("ShieldMe: #app root element missing");
 // base path (e.g. /ShieldMe/*). External links and the GitHub link in the
 // footer fall through to normal browser navigation.
 render(
-  <LocationProvider scope={BASE || undefined}>
+  <LocationProvider {...(BASE ? { scope: BASE } : {})}>
     <App />
   </LocationProvider>,
   root,

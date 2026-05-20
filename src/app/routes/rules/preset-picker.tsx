@@ -12,7 +12,7 @@
  * copy linter (scripts/lint-copy.mjs).
  */
 import { signal } from "@preact/signals";
-import { Button, Card, Badge } from "~/app/ui";
+import { Button, Badge } from "~/app/ui";
 import { presetResolver } from "~/core/preset-resolver";
 import { rulesState, applyPreset, unapplyPreset } from "~/core/rules";
 import { ALL_PRESETS } from "~/data/presets/index";

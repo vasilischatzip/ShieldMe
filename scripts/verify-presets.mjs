@@ -10,7 +10,7 @@
  *   4. Every key in "detectors" is a known detector ID
  *      (discovered by scanning src/detectors/**\/*.ts for `id:` declarations).
  *   5. Every titleI18nKey and descriptionI18nKey exists in
- *      _locales/en/messages.json.
+ *      public/locales/en.json.
  *   6. "locale" is a non-empty string (ISO-3166-1 alpha-2 | "eu" | "global").
  *
  * Exits 0 when all checks pass, 1 on any failure.
@@ -82,7 +82,7 @@ const knownDetectorIds = collectDetectorIds(join(ROOT, "src", "detectors"));
 
 /* ── Step 2: Load i18n keys ─────────────────────────────────────── */
 
-const messagesPath = join(ROOT, "_locales", "en", "messages.json");
+const messagesPath = join(ROOT, "public", "locales", "en.json");
 let i18nKeys;
 try {
   const raw = JSON.parse(readFileSync(messagesPath, "utf8"));
@@ -169,13 +169,13 @@ for (const filename of presetFiles) {
   if (preset.titleI18nKey && !i18nKeys.has(preset.titleI18nKey)) {
     fail(
       filename,
-      `titleI18nKey "${preset.titleI18nKey}" not found in _locales/en/messages.json`,
+      `titleI18nKey "${preset.titleI18nKey}" not found in public/locales/en.json`,
     );
   }
   if (preset.descriptionI18nKey && !i18nKeys.has(preset.descriptionI18nKey)) {
     fail(
       filename,
-      `descriptionI18nKey "${preset.descriptionI18nKey}" not found in _locales/en/messages.json`,
+      `descriptionI18nKey "${preset.descriptionI18nKey}" not found in public/locales/en.json`,
     );
   }
 

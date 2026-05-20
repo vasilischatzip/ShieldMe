@@ -7,8 +7,7 @@
  * TierGate.check("custom-rules:max", { value: activeCount }) gates additions.
  */
 import { signal } from "@preact/signals";
-import { useEffect } from "preact/hooks";
-import { Button, Card, Badge, Row } from "~/app/ui";
+import { Button, Badge, Row } from "~/app/ui";
 import { TierGate, FREE_LIMITS } from "~/core/tier-gate";
 import type { TierCheckResult } from "~/core/tier-gate";
 
