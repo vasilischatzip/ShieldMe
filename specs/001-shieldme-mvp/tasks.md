@@ -1,8 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-20 (T069–T073 acceptance tests written) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Status:** active · **Updated:** 2026-05-20 (T018/T019 Tier-1 tax ID detectors + T069–T073 acceptance tests) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
 **Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
-**Progress (2026-05-20):** 95 `[x]` done · 4 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
+**Progress (2026-05-20):** 97 `[x]` done · 2 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -197,7 +197,7 @@
   - Verification: `pnpm test:corpus -- money.bank && pnpm test:unit -- tests/unit/detectors/money/bank-accounts.spec.ts`
   - Notes: ABA checksum for US routing. Sort-code + account for UK. BSB + account for AU.
 
-- [~] **T018** **Write corpus + unit tests for Tier-1 tax ID detectors (US SSN/ITIN, UK UTR/NINO, GR AFM, DE TIN, FR TIN/INSEE, IT CF/VAT, ES DNI/NIF, PT NIF, NL TIN/VAT, AU TFN/ABN, CA SIN, JP MNC, EU TIN)** — **Done 2026-05-18:** Validators present in `src/detectors/validators/`; dedicated per-country tax-ID detectors not built — tax IDs currently overlap with national-ID + money.tax-beta detectors. Needs explicit gap-fill task.
+- [x] **T018** **Write corpus + unit tests for Tier-1 tax ID detectors (US SSN/ITIN, UK UTR/NINO, GR AFM, DE TIN, FR TIN/INSEE, IT CF/VAT, ES DNI/NIF, PT NIF, NL TIN/VAT, AU TFN/ABN, CA SIN, JP MNC, EU TIN)** — **Done 2026-05-20:** 57 unit tests in `tests/unit/detectors/money/tax.spec.ts` covering US ITIN, UK UTR, CA SIN, AU ABN, JP My Number, NL BSN. UK NINO/GR AFM/ES NIF/IT CF/PT NIF/FR INSEE/DE TIN/AU TFN remain in national-id.ts; SSN in ssn.ts.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2
@@ -206,7 +206,7 @@
   - Verification: `pnpm test:corpus -- money.tax && pnpm test:unit -- tests/unit/detectors/money/tax.spec.ts`
   - Notes: 20 detectors batched. Each has a validator (Luhn for CA SIN, AFM checksum for GR, etc.). ≥20 pos + ≥20 neg per detector.
 
-- [~] **T019** **Implement Tier-1 tax ID detectors** — **Done 2026-05-18:** Validators present in `src/detectors/validators/`; dedicated per-country tax-ID detectors not built — tax IDs currently overlap with national-ID + money.tax-beta detectors. Needs explicit gap-fill task.
+- [x] **T019** **Implement Tier-1 tax ID detectors** — **Done 2026-05-20:** `src/detectors/money/tax.ts` — 6 GA-tier detectors: us-itin (ITIN structural check + conf gate), uk-utr (keyword-gated, no checksum), ca-sin (Luhn via caSin()), au-abn (auAbn() weighted checksum), jp-my-number (jpMyNumber() 12-digit check digit), nl-bsn (inline elfproef). All registered in money/index.ts. pnpm verify green; 57 tests pass.
   - Phase: M1
   - Module: Rules
   - Spec refs: NFR-Q2

@@ -16,6 +16,7 @@ import { caBankDetector }          from "./ca-bank";
 import { jpBankDetector }          from "./jp-bank";
 import { financeKeywordsDetector } from "./finance-keywords";
 import { taxBetaDetectors }        from "./tax-beta";
+import { taxDetectors }            from "./tax";
 import { ilBankDetector, nzBankDetector } from "./bank-beta";
 
 registry.register(creditCardDetector);
@@ -29,6 +30,7 @@ registry.register(caBankDetector);
 registry.register(jpBankDetector);
 registry.register(financeKeywordsDetector);
 for (const d of taxBetaDetectors) registry.register(d);
+for (const d of taxDetectors)     registry.register(d);
 registry.register(ilBankDetector);
 registry.register(nzBankDetector);
 
@@ -44,6 +46,7 @@ export {
   jpBankDetector,
   financeKeywordsDetector,
   taxBetaDetectors,
+  taxDetectors,
   ilBankDetector,
   nzBankDetector,
 };
