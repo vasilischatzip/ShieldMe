@@ -1,8 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-20 (T018/T019 tax IDs + T038/T039 cloud keys + T069–T073 acceptance tests) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Status:** active · **Updated:** 2026-05-21 (T075–T096 M2 Identity complete) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
 **Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
-**Progress (2026-05-20):** 99 `[x]` done · 0 `[~]` partial · ~119 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
+**Progress (2026-05-21):** 116 `[x]` done · 0 `[~]` partial · ~102 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -744,7 +744,7 @@
 
 ### Identity & Account Management
 
-- [ ] **T075** `[P]` **Write FakeIdentityProvider + FakeAccountManager test doubles**
+- [x] **T075** `[P]` **Write FakeIdentityProvider + FakeAccountManager test doubles**
   - Phase: M2
   - Module: Identity
   - Spec refs: —
@@ -753,7 +753,7 @@
   - Verification: `pnpm test:unit -- tests/fakes/identity/`
   - Notes: Implement full `IdentityProvider` and `AccountManager` interfaces. Support multi-account scenarios.
 
-- [ ] **T076** **Write failing tests for GoogleIdentityProvider (PKCE, ID token validation, refresh, revoke)**
+- [x] **T076** **Write failing tests for GoogleIdentityProvider (PKCE, ID token validation, refresh, revoke)**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc1, FR-Acc4, FR-Acc5, FR-Acc6, C-OAUTH-1, C-OAUTH-2, C-OAUTH-3, C-OAUTH-5
@@ -762,7 +762,7 @@
   - Verification: `pnpm test:unit -- tests/unit/core/identity/google-provider.spec.ts`
   - Notes: Test PKCE code flow via `launchWebAuthFlow`. Test ID token validation (known-vector + adversarial). Test refresh-token isolation. Test revoke-before-wipe.
 
-- [ ] **T077** **Implement GoogleIdentityProvider**
+- [x] **T077** **Implement GoogleIdentityProvider**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc1, FR-Acc4, FR-Acc5, FR-Acc6, C-OAUTH-1, C-OAUTH-2, C-OAUTH-3, C-OAUTH-5
@@ -771,7 +771,7 @@
   - Verification: `pnpm test:unit -- tests/unit/core/identity/google-provider.spec.ts`
   - Notes: `chrome.identity.getAuthToken` forbidden by lint rule. JWKS cached in IDB for 24h. Uses `@noble/ed25519` for signature verification.
 
-- [ ] **T078** **Write failing tests for AccountManager (add, remove, setActive, list, accessToken, onChange)**
+- [x] **T078** **Write failing tests for AccountManager (add, remove, setActive, list, accessToken, onChange)**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc2, FR-Acc3, FR-Acc6, FR-Acc7, FR-Acc8, AC-Acc1, AC-Acc2
@@ -780,7 +780,7 @@
   - Verification: `pnpm test:unit -- tests/unit/core/identity/account-manager.spec.ts`
   - Notes: Test multi-account: add two, switch active, remove one preserves other. Test TierGate.check("accounts-max"). Test namespace isolation.
 
-- [ ] **T079** **Implement AccountManager**
+- [x] **T079** **Implement AccountManager**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc2, FR-Acc3, FR-Acc6, FR-Acc7, FR-Acc8, AC-Acc1, AC-Acc2
@@ -791,7 +791,7 @@
 
 ### Per-account Key Derivation
 
-- [ ] **T080** **Write failing tests for per-account derived keys (C-KEY-1, C-KEY-2, C-KEY-3)**
+- [x] **T080** **Write failing tests for per-account derived keys (C-KEY-1, C-KEY-2, C-KEY-3)**
   - Phase: M2
   - Module: Identity
   - Spec refs: C-KEY-1, C-KEY-2, C-KEY-3
@@ -800,7 +800,7 @@
   - Verification: `pnpm test:unit -- tests/unit/core/crypto-keys.spec.ts`
   - Notes: Test HKDF derivation from wrapping seed + account ULID. Test cross-account decrypt fails. Test key rotation re-encrypts all accounts. Test `extractable: false`.
 
-- [ ] **T081** **Implement per-account key derivation (HKDF) + C-MEM-1 (disposable decrypted key)**
+- [x] **T081** **Implement per-account key derivation (HKDF) + C-MEM-1 (disposable decrypted key)**
   - Phase: M2
   - Module: Identity
   - Spec refs: C-KEY-1, C-KEY-2, C-KEY-3, C-MEM-1
@@ -811,7 +811,7 @@
 
 ### Multi-account UI
 
-- [ ] **T082** **Write failing tests for Settings, Accounts UI + AccountSwitcher**
+- [x] **T082** **Write failing tests for Settings, Accounts UI + AccountSwitcher**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc7, FR-Acc8
@@ -820,7 +820,7 @@
   - Verification: `pnpm test:unit -- tests/unit/options/accounts.spec.tsx && pnpm test:unit -- tests/unit/ui/components/account-switcher.spec.tsx`
   - Notes: Test list with provider badge, label, last-used date, Disconnect action. Test type-to-confirm dialog. Test switcher appears only when >1 eligible account.
 
-- [ ] **T083** **Implement Settings, Accounts UI + AccountSwitcher component**
+- [x] **T083** **Implement Settings, Accounts UI + AccountSwitcher component**
   - Phase: M2
   - Module: Identity
   - Spec refs: FR-Acc7, FR-Acc8
@@ -831,7 +831,7 @@
 
 ### Email Guardian Outbound (Gmail)
 
-- [ ] **T084** `[P]` **Write FakeEmailProvider test double**
+- [x] **T084** `[P]` **Write FakeEmailProvider test double**
   - Phase: M2
   - Module: Email Guardian
   - Spec refs: —
@@ -938,7 +938,7 @@
 
 ### Tier Migration
 
-- [ ] **T095** `[H]` **Write tests + implement TierStatus v1 to v2 migration (premium to pro, remove pro-family)**
+- [x] **T095** `[H]` **Write tests + implement TierStatus v1 to v2 migration (premium to pro, remove pro-family)**
   - Phase: M2
   - Module: Cross-cutting
   - Spec refs: —
@@ -949,7 +949,7 @@
 
 ### M2 Checkpoint
 
-- [ ] **T096** `[O]` **M2 phase gate — full verification**
+- [x] **T096** `[O]` **M2 phase gate — full verification**
   - Phase: M2
   - Module: Cross-cutting
   - Spec refs: —

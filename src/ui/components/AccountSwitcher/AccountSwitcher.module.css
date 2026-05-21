@@ -1,0 +1,23 @@
+/**
+ * AccountSwitcher component styles.
+ * Uses design tokens from src/ui/tokens/.
+ */
+
+.accountSwitcher {
+  display:     flex;
+  align-items: center;
+  gap:         var(--sm-space-2);
+}
+
+.accountSwitcherLabel {
+  font-size:   var(--sm-fs-xs);
+  color:       var(--sm-text-muted);
+  white-space: nowrap;
+}
+
+.accountSwitcherSelect {
+  flex:        1;
+  min-width:   0;
+  max-width:   240px;
+  font-size:   var(--sm-fs-sm);
+}

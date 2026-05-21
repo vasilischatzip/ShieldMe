@@ -7,10 +7,17 @@ import type { LocalStore } from "./storage";
 import { generateWrappingKey } from "./crypto";
 
 /** Increment this when adding a new migration. */
-export const CURRENT_META_VERSION = 1;
+export const CURRENT_META_VERSION  = 1;
 export const CURRENT_RULES_VERSION = 2;
 export const CURRENT_PREFS_VERSION = 1;
-export const CURRENT_TIER_VERSION = 1;
+export const CURRENT_TIER_VERSION  = 2;
+
+/** Number of accounts allowed per tier in TierStatus v2. */
+const TIER_ACCOUNTS_MAX: Record<string, number> = {
+  "free":            1,
+  "premium-preview": 0, // 0 = unlimited (preview)
+  "pro":             0, // 0 = unlimited
+};
 
 export interface MetaRecord {
   version: number;
@@ -103,6 +110,28 @@ export async function runMigrations(store: LocalStore): Promise<MigrationResult>
       });
 
       applied.push("rules:v1→v2");
+    }
+
+    // ── Tier v1 → v2 ──────────────────────────────────────────────────────
+    const tier = await store.get<{ version?: number; tier?: string }>( "tier");
+    if (tier && (tier.version ?? 1) < CURRENT_TIER_VERSION) {
+      const oldTier = tier.tier ?? "free";
+
+      // Rename legacy tier keys to new scheme
+      const tierMap: Record<string, string> = {
+        "premium":    "pro",
+        "pro-family": "pro",
+      };
+      const newTierName = tierMap[oldTier] ?? oldTier;
+      const accountsMax = TIER_ACCOUNTS_MAX[newTierName] ?? 0;
+
+      await store.set("tier", {
+        ...tier,
+        version:     CURRENT_TIER_VERSION,
+        tier:        newTierName,
+        accountsMax,
+      });
+      applied.push("tier:v1→v2");
     }
 
     return { status: "ok", migrationsRun: applied };
