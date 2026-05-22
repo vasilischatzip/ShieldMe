@@ -1,8 +1,8 @@
 # Tasks — ShieldMe v1.0 (web app)
 
-**Status:** active · **Updated:** 2026-05-21 (T075–T096 M2 Identity complete) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
+**Status:** active · **Updated:** 2026-05-22 (T104–T105 M3 Fix Actions done) · **Total:** 218 tasks (202 prior + 13 pivot + 3 deploy hotfix)
 **Phase counts:** **MP** (Pivot conversion): 13 + 3 hotfix · M1: 74 · M2: 22 · M3: 22 · M4: 19 · M5: 22 · M6: 19 · M7: 24
-**Progress (2026-05-21):** 116 `[x]` done · 0 `[~]` partial · ~102 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
+**Progress (2026-05-22):** 125 `[x]` done · 0 `[~]` partial · ~93 `[ ]` pending. Markers: `[~]` = implementation exists but doesn't match the spec breakdown — needs a gap-fill task.
 
 **Prerequisites complete (M0):** repo bootstrap, CI, Vite build, design tokens, i18n EN/EL, TierGate stub, LocalStore + IDB wrappers, crypto (AES-GCM), migrations runner, Playwright harness, corpus harness, a11y test harness, egress allowlist script, bundle budget script, CSP verifier, preset verifier, copy linter, eslint config.
 
@@ -964,7 +964,7 @@
 
 ### Cloud Audit Core
 
-- [ ] **T097** `[P]` **Write FakeCloudStorageProvider test double**
+- [x] **T097** `[P]` **Write FakeCloudStorageProvider test double**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: —
@@ -973,7 +973,7 @@
   - Verification: `pnpm test:unit -- tests/fakes/cloud/`
   - Notes: Implements `CloudStorageProvider` interface. Supports synthetic file corpus with known PII and known permissions.
 
-- [ ] **T098** **Write failing tests for GoogleDriveProvider (listAllFiles, changesSince, getContent, upgradeToWriteScope, applyPermissionChange)**
+- [x] **T098** **Write failing tests for GoogleDriveProvider (listAllFiles, changesSince, getContent, upgradeToWriteScope, applyPermissionChange)**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A1, FR-A5, FR-A6
@@ -982,7 +982,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/google-drive-provider.spec.ts`
   - Notes: Test AsyncIterable pagination. Test cache invalidation by `fileId + modifiedTime`. Test token-bucket throttling.
 
-- [ ] **T099** **Implement GoogleDriveProvider**
+- [x] **T099** **Implement GoogleDriveProvider**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A1, FR-A5, FR-A6
@@ -991,7 +991,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/google-drive-provider.spec.ts`
   - Notes: Consumes `AccountManager` for fresh access tokens. Token bucket: 8 req/s refill, 5 concurrent. Retries with jitter on 403/429.
 
-- [ ] **T100** **Write failing tests for token-bucket throttling**
+- [x] **T100** **Write failing tests for token-bucket throttling**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: NFR-P4
@@ -1000,7 +1000,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/throttle.spec.ts`
   - Notes: Test 8 req/s refill, 5 concurrent limit. Test backoff with jitter on 429.
 
-- [ ] **T101** **Implement token-bucket throttling**
+- [x] **T101** **Implement token-bucket throttling**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: NFR-P4
@@ -1009,7 +1009,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/throttle.spec.ts`
   - Notes: Reusable by all providers. Configurable per provider.
 
-- [ ] **T102** **Write failing tests for Drive audit engine (list, permissions analysis, content scan, cross-reference)**
+- [x] **T102** **Write failing tests for Drive audit engine (list, permissions analysis, content scan, cross-reference)**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A2, FR-A3, FR-A4, AC-A2, AC-A4
@@ -1018,7 +1018,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/audit.spec.ts`
   - Notes: Test Free tier: content scan stops at 100 files. Test cross-reference: permissions times findings. Test IBAN + "Anyone with link" leads to Critical.
 
-- [ ] **T103** **Implement Drive audit engine**
+- [x] **T103** **Implement Drive audit engine**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A2, FR-A3, FR-A4, AC-A2, AC-A4
@@ -1029,7 +1029,7 @@
 
 ### Drive Fix Actions + Scope Upgrade
 
-- [ ] **T104** **Write failing tests for fix-action buttons + write-scope upgrade flow**
+- [x] **T104** **Write failing tests for fix-action buttons + write-scope upgrade flow**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A3, C-OAUTH-4
@@ -1038,7 +1038,7 @@
   - Verification: `pnpm test:unit -- tests/unit/cloud/fix-actions.spec.ts`
   - Notes: Free tier: fix buttons show Premium upsell. Paid: one-time `drive` (write) scope upgrade consent. Test scope upgrade is separate consent screen (C-OAUTH-4).
 
-- [ ] **T105** **Implement fix-action buttons + scope upgrade flow**
+- [x] **T105** **Implement fix-action buttons + scope upgrade flow**
   - Phase: M3
   - Module: Cloud Audit
   - Spec refs: FR-A3, C-OAUTH-4
